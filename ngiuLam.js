@@ -1,1 +1,0 @@
-console.log("Chúng ta không thuộc về nhau");
