@@ -15,6 +15,10 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var lbQuestionC: UILabel!
     @IBOutlet weak var lbTotal: UILabel!
     
+    @IBOutlet weak var result1: UILabel!
+    @IBOutlet weak var result2: UILabel!
+    @IBOutlet weak var result3: UILabel!
+    
     let question = ListQuestion()
     var level:[String] = []
     @IBOutlet weak var score: UILabel!
@@ -22,9 +26,9 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         
         level = handleQuestions(lQues: question)
-//        lbQuestionA.text = level[0]
-//        lbQuestionB.text = level[1]
-//        lbQuestionC.text = level[2]
+        result1.text = level[0]
+        result2.text = level[1]
+        result3.text = level[2]
         let total = handlePoint(lQues: question)
         lbTotal.text = "\(total)"
         //print("Tong: \(tong)")
@@ -36,11 +40,11 @@ class ResultViewController: UIViewController {
         for i in 0..<lQues.listQuestion.count{
             dem += 1
             if lQues.listQuestion[i].getPoint() == true{
-                type.append("Cau \(dem): dung")
+                type.append("Correct")
                 //tong += 2
             }
             else{
-                type.append("Cau \(dem): sai")
+                type.append("Wrong")
             }
         }
         return type

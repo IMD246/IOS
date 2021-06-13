@@ -13,6 +13,7 @@ class User {
     var gender:String = ""
     var age:Int = 0
     var phone:String = ""
+    var password:String = ""
     var point:Int = 0
     
     //Constructor
@@ -21,6 +22,12 @@ class User {
     }
     func getUserName()->String{
         return self.userName
+    }
+    func getPassword()->String{
+        return self.password
+    }
+    func setPassword(password:String){
+        self.password = password
     }
     func getGender()->String{
         return gender
@@ -53,11 +60,12 @@ class User {
     func setPoint(point:Int){
         self.point = point
     }
-    init?(name:String, user:String, gender:String, age:Int, phone:String, point:Int) {
-        if name == "" || user == "" || gender == "" || age <= 0 || phone == "" || point < 0{
-            return nil
+    init(name:String,password:String, user:String, gender:String, age:Int, phone:String, point:Int) {
+        if name == "" || user == "" || password == "" || gender == "" || age <= 0 || phone == "" || point < 0{
+            fatalError("Data unvalid")
         }
         else{
+            self.password = password
             self.name = name
             self.userName = user
             self.gender = gender

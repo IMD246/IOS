@@ -20,7 +20,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var edtPhone: UITextField!
     
     var gender:String = ""
-    
+    var check1:Bool = true
+    var check2:Bool = true
+    var check3:Bool = true
+    var listData = listUser()
     override func viewDidLoad() {
         super.viewDidLoad()
         edtName.delegate = self
@@ -29,6 +32,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         edtPassword.delegate = self
         edtRepass.delegate = self
         edtPhone.delegate = self
+        listData.getDataFromFireBase()
     }
     //Mark: TextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -38,9 +42,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createUser(_ sender: UIButton) {
+        for i in 0..<listData.list.count
+        {
+            if edtUserName.text == listData.list[i].userName{
+                check1 = false
+                break
+            }
+        }
         let v = Int(edtAge.text ?? "0")
-        let user = User(name: edtName.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0)
-        print(user?.getAge())
+        if edtUserName.text == nil || edtPassword.text == nil || edtAge.text == nil ||  edtName.text == nil || gender == "" {
+            print("input invalid")
+        }
+        else if(edtPassword.text != edtRepass.text){
+            print("password not equal to confirm pass")
+        }
+        else if check1 == false{
+            print("acount user duplicate")
+        }
+        else{
+            let user = User(name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0)
+            listData.insertUser(user: user)
+        }
+        
     }
     
     //

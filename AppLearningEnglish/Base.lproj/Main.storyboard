@@ -2539,12 +2539,16 @@
                         <outlet property="lbQuestionB" destination="L5S-xK-zml" id="b5M-vY-woq"/>
                         <outlet property="lbQuestionC" destination="lTY-Gt-6gH" id="iho-tE-QuW"/>
                         <outlet property="lbTotal" destination="Ve5-zP-GQT" id="ghG-wd-R5k"/>
+                        <outlet property="result1" destination="7KX-G3-2f1" id="KpG-fW-YXJ"/>
+                        <outlet property="result2" destination="L5S-xK-zml" id="mPd-kF-eIW"/>
+                        <outlet property="result3" destination="lTY-Gt-6gH" id="y4V-Hj-bHF"/>
+                        <outlet property="score" destination="Ve5-zP-GQT" id="Hhd-7C-DaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRo-Mj-c9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pQw-ZD-sPI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1040.5797101449275" y="2408.7053571428569"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="2408.7053571428569"/>
         </scene>
         <!--Basic3 View Controller-->
         <scene sceneID="Wsl-G9-JcF">
