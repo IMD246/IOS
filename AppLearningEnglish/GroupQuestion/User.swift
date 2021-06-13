@@ -53,9 +53,9 @@ class User {
     func setPoint(point:Int){
         self.point = point
     }
-    init(name:String, user:String, gender:String, age:Int, phone:String, point:Int) {
+    init?(name:String, user:String, gender:String, age:Int, phone:String, point:Int) {
         if name == "" || user == "" || gender == "" || age <= 0 || phone == "" || point < 0{
-            fatalError("Data unvalid")
+            return nil
         }
         else{
             self.name = name

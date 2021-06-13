@@ -11,24 +11,35 @@ import XCTest
 
 class AppLearningEnglishTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    //MARK: when user register a account and this is Success.
+    func testRegisterAccountSuccess() {
+        let user = User.init(name: "Sinh", user: "SinhDo", gender: "Male", age: 20, phone: "0123456789", point: 2)
+        let user1 = User.init(name: "Sinh", user: "SinhDo", gender: "Male", age: 20, phone: "0", point: 2)
+        XCTAssertNotNil(user1)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    //MARK: when user register a account and this is fail.
+    func testRegisterAccountFail() {
+        //when creating a account but name is null
+        let user1 = User.init(name: "", user: "SinhDo", gender: "Male", age: 20, phone: "0123456789", point: 2)
+        //when creating a account but name and username are null
+        let user2 = User.init(name: "", user: "", gender: "Male", age: 20, phone: "0123456789", point: 2)
+        //when creating a account but name, username and gender is null
+        let user3 = User.init(name: "", user: "", gender: "", age: 20, phone: "0123456789", point: 2)
+        //when creating a account but name, username, gender and phone is null
+        let user4 = User.init(name: "", user: "", gender: "", age: 20, phone: "", point: 2)
+        //when creating a account but name, username, gender, phone is null and age is less than 1
+        let user5 = User.init(name: "", user: "", gender: "", age: 0, phone: "", point: 2)
+        //when creating a account but name, username, gender, phone is null and age, point is not invalid
+        let user6 = User.init(name: "", user: "", gender: "", age: 0, phone: "", point: -1)
+        //when creating a account but username is null
+        let user7 = User.init(name: "Sinh", user: "", gender: "Male", age: 20, phone: "0123456789", point: 2)
+        //when creating a account but gender is null
+        let user8 = User.init(name: "Sinh", user: "SinhDo", gender: "", age: 20, phone: "0123456789", point: 2)
+        //when creating a account but phone is null
+        let user9 = User.init(name: "Sinh", user: "SinhDo", gender: "Male", age: 20, phone: "", point: 2)
+        //when creating a account but age is not invalid
+        let user10 = User.init(name: "Sinh", user: "SinhDo", gender: "Male", age: 0, phone: "0123456789", point: 1)
+        XCTAssertNil(user10)
     }
 
 }

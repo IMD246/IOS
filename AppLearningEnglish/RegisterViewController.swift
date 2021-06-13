@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func createUser(_ sender: UIButton) {
         let v = Int(edtAge.text ?? "0")
         let user = User(name: edtName.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0)
-        print(user.getAge())
+        print(user?.getAge())
     }
     
     //

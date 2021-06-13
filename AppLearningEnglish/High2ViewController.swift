@@ -73,6 +73,9 @@ class High2ViewController: UIViewController {
             self.rdoA.isSelected = false
         }else{
             self.rdoA.isSelected = true
+            self.rdoB.isSelected = false
+            self.rdoC.isSelected = false
+            self.rdoD.isSelected = false
             check2[0] = 1
             answer.append(0)
         }
@@ -83,6 +86,9 @@ class High2ViewController: UIViewController {
             self.rdoB.isSelected = false
         }else{
             self.rdoB.isSelected = true
+            self.rdoA.isSelected = false
+            self.rdoC.isSelected = false
+            self.rdoD.isSelected = false
             check2[1] = 1
             answer.append(1)
         }
@@ -93,6 +99,9 @@ class High2ViewController: UIViewController {
             self.rdoC.isSelected = false
         }else{
             self.rdoC.isSelected = true
+            self.rdoA.isSelected = false
+            self.rdoB.isSelected = false
+            self.rdoD.isSelected = false
             check2[2] = 1
             answer.append(2)
         }
@@ -103,6 +112,9 @@ class High2ViewController: UIViewController {
             self.rdoD.isSelected = false
         }else{
             self.rdoD.isSelected = true
+            self.rdoA.isSelected = false
+            self.rdoB.isSelected = false
+            self.rdoC.isSelected = false
             check2[3] = 1
             answer.append(3)
         }

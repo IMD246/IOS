@@ -76,6 +76,9 @@ class Basic2ViewController: UIViewController {
             self.correctACheckbox.isSelected = false
         }else{
             self.correctACheckbox.isSelected = true
+            self.correctBCheckbox.isSelected = false
+            self.correctCCheckbox.isSelected = false
+            self.correctDCheckbox.isSelected = false
             check2[0] = 1
             answer.append(0)
         }
@@ -87,6 +90,9 @@ class Basic2ViewController: UIViewController {
             self.correctBCheckbox.isSelected = false
         }else{
             self.correctBCheckbox.isSelected = true
+            self.correctACheckbox.isSelected = false
+            self.correctCCheckbox.isSelected = false
+            self.correctDCheckbox.isSelected = false
             check2[1] = 1
             answer.append(1)
         }
@@ -97,6 +103,9 @@ class Basic2ViewController: UIViewController {
             self.correctCCheckbox.isSelected = false
         }else{
             self.correctCCheckbox.isSelected = true
+            self.correctACheckbox.isSelected = false
+            self.correctBCheckbox.isSelected = false
+            self.correctDCheckbox.isSelected = false
             check2[2] = 1
             answer.append(2)
         }
@@ -108,6 +117,9 @@ class Basic2ViewController: UIViewController {
             self.correctDCheckbox.isSelected = false
         }else{
             self.correctDCheckbox.isSelected = true
+            self.correctACheckbox.isSelected = false
+            self.correctBCheckbox.isSelected = false
+            self.correctCCheckbox.isSelected = false
             check2[3] = 1
             answer.append(3)
         }
