@@ -16,7 +16,6 @@ class High3ViewController: UIViewController {
     @IBOutlet weak var correctB: UISwitch!
     @IBOutlet weak var correctA: UISwitch!
     @IBOutlet weak var btnLeft: UIButton!
-    @IBOutlet weak var btnFinish: UIButton!
     @IBOutlet weak var boolCorrectA: UILabel!
     @IBOutlet weak var boolCorrectB: UILabel!
     @IBOutlet weak var boolCorrectC: UILabel!
@@ -162,6 +161,21 @@ class High3ViewController: UIViewController {
             check3[3] = 0
         }
     }
+    @IBAction func checkFinish(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Message", message: "Do you want to finish ?", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "Yes", style: .default, handler:{  action in
+            //Write your code here
+            let passResult = self.storyboard!.instantiateViewController(withIdentifier: "result") as! ResultViewController
+            self.checkAnswer()
+            passResult.question.listQuestion.removeAll()
+            self.question.listQuestion[2].setQuestionAnswer(questionAnswer: self.answer)
+            passResult.question.listQuestion = self.question.listQuestion
+            self.present(passResult, animated: false, completion: nil)
+        })
+        alert.addAction(acceptAction)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
     // MARK: - Navigation
     // In a storyboard-based application, yo;u will often want to do a little preparation before navigation
     // MARK: - Navigation
@@ -175,13 +189,6 @@ class High3ViewController: UIViewController {
             checkAnswer()
             moveQuestion = question.listQuestion
             moveQuestion[2].setQuestionAnswer(questionAnswer: answer)
-        }
-        else if let button = sender as? UIButton , button === btnFinish{
-            checkAnswer()
-            guard let passResult = segue.destination as? ResultViewController else {return}
-            passResult.question.listQuestion.removeAll()
-            passResult.question.listQuestion = question.listQuestion
-            question.listQuestion[2].setQuestionAnswer(questionAnswer: answer)
         }
     }
 }

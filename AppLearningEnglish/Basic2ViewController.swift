@@ -16,7 +16,7 @@ class Basic2ViewController: UIViewController {
     @IBOutlet weak var correctDCheckbox: UIButton!
     @IBOutlet weak var btnRight: UIButton!
     @IBOutlet weak var btnLeft: UIButton!
-    @IBOutlet weak var btnFinish: UIButton!
+
     
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblQuestionB: UILabel!
@@ -139,6 +139,21 @@ class Basic2ViewController: UIViewController {
             answer.append(3)
         }
     }
+    @IBAction func checkFinish(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Message", message: "Do you want to finish ?", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "Yes", style: .default, handler:{  action in
+            //Write your code here
+            let passResult = self.storyboard!.instantiateViewController(withIdentifier: "result") as! ResultViewController
+            self.checkAnswer()
+            passResult.question.listQuestion.removeAll()
+            self.question.listQuestion[1].setQuestionAnswer(questionAnswer: self.answer)
+            passResult.question.listQuestion = self.question.listQuestion
+            self.present(passResult, animated: false, completion: nil)
+        })
+        alert.addAction(acceptAction)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -163,13 +178,6 @@ class Basic2ViewController: UIViewController {
             moveQuestion = question.listQuestion
             moveQuestion[1].setQuestionAnswer(questionAnswer: answer)
         }
-        else if let button = sender as? UIButton , button === btnFinish{
-            checkAnswer()
-            guard let passResult = segue.destination as? ResultViewController else {return}
-            passResult.question.listQuestion.removeAll()
-            question.listQuestion[1].setQuestionAnswer(questionAnswer: answer)
-            passResult.question.listQuestion = question.listQuestion
-        }//
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation

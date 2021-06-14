@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		6607F996264B85C9001DC3CB /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6607F995264B85C9001DC3CB /* ForgotPassViewController.swift */; };
 		660B555426764EBF00811A8A /* listUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660B555326764EBE00811A8A /* listUser.swift */; };
-		660B55562676503000811A8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 660B55552676503000811A8A /* GoogleService-Info.plist */; };
 		66113882266A7817000D763F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113881266A7817000D763F /* RegisterViewController.swift */; };
 		66113884266A7851000D763F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113883266A7851000D763F /* ProfileViewController.swift */; };
 		66113886266A788F000D763F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113885266A788F000D763F /* EditProfileViewController.swift */; };
 		66113888266A78BA000D763F /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113887266A78BA000D763F /* ShopViewController.swift */; };
 		6611388A266A7B6A000D763F /* RankTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113889266A7B6A000D763F /* RankTableViewController.swift */; };
+		661488CF2677A8620068EF2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 661488CE2677A8620068EF2B /* GoogleService-Info.plist */; };
 		661A325B2668EC4E00E291BE /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A325A2668EC4E00E291BE /* Question.swift */; };
 		661A325F2668F9B100E291BE /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A325E2668F9B100E291BE /* ResultViewController.swift */; };
 		661DF67E2662960200B92CF1 /* High1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661DF67D2662960200B92CF1 /* High1ViewController.swift */; };
@@ -28,7 +28,6 @@
 		662A812C266E539200DD3685 /* MulltiQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A8129266E539100DD3685 /* MulltiQuestion.swift */; };
 		662A812D266E539200DD3685 /* ListQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A812A266E539100DD3685 /* ListQuestion.swift */; };
 		662A812E266E539200DD3685 /* OneChoiceQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662A812B266E539200DD3685 /* OneChoiceQuestion.swift */; };
-		6651599426711D83006597BE /* LoginSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651599326711D83006597BE /* LoginSuccessViewController.swift */; };
 		666FFC1B2649088400347838 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FFC1A2649088400347838 /* AppDelegate.swift */; };
 		666FFC1D2649088400347838 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FFC1C2649088400347838 /* LoginViewController.swift */; };
 		666FFC202649088400347838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666FFC1E2649088400347838 /* Main.storyboard */; };
@@ -37,8 +36,8 @@
 		666FFC302649088600347838 /* AppLearningEnglishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FFC2F2649088600347838 /* AppLearningEnglishTests.swift */; };
 		666FFC3C26493C3800347838 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FFC3B26493C3800347838 /* DesignableView.swift */; };
 		6695D0AE26723C980033870D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6695D0AD26723C980033870D /* User.swift */; };
-		77B8001BC72147BF8497226A /* Pods_AppLearningEnglishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CB23E379DCB0FAC6B8CA18 /* Pods_AppLearningEnglishTests.framework */; };
-		868D4814535BF6F5D4119B09 /* Pods_AppLearningEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 254382AABA4155173C4EADFC /* Pods_AppLearningEnglish.framework */; };
+		753128983C28CB7D5774C07D /* Pods_AppLearningEnglishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F8BD1B6784ADD4FB337407 /* Pods_AppLearningEnglishTests.framework */; };
+		8F0A5BE783108655A8635CF0 /* Pods_AppLearningEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63ECA962C72161273337C816 /* Pods_AppLearningEnglish.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,18 +51,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		254382AABA4155173C4EADFC /* Pods_AppLearningEnglish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLearningEnglish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C15194F0EB3A617F85C2E26 /* Pods-AppLearningEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglish.debug.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish.debug.xcconfig"; sourceTree = "<group>"; };
-		6490546325B6F4AC649869AB /* Pods-AppLearningEnglish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglish.release.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish.release.xcconfig"; sourceTree = "<group>"; };
-		64CB23E379DCB0FAC6B8CA18 /* Pods_AppLearningEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLearningEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3654686CABCCE15E1DE6464D /* Pods-AppLearningEnglishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglishTests.debug.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglishTests/Pods-AppLearningEnglishTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EFAA13D05057B2215941AEB /* Pods-AppLearningEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglish.debug.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish.debug.xcconfig"; sourceTree = "<group>"; };
+		598E1561958D8B8A9A9564BC /* Pods-AppLearningEnglish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglish.release.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish.release.xcconfig"; sourceTree = "<group>"; };
+		63ECA962C72161273337C816 /* Pods_AppLearningEnglish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLearningEnglish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6607F995264B85C9001DC3CB /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		660B555326764EBE00811A8A /* listUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listUser.swift; sourceTree = "<group>"; };
-		660B55552676503000811A8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../IOS-main/AppLearningEnglish/SupportingFiles/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66113881266A7817000D763F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		66113883266A7851000D763F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		66113885266A788F000D763F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		66113887266A78BA000D763F /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		66113889266A7B6A000D763F /* RankTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewController.swift; sourceTree = "<group>"; };
+		661488CE2677A8620068EF2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		661A325A2668EC4E00E291BE /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		661A325E2668F9B100E291BE /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		661DF67D2662960200B92CF1 /* High1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = High1ViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +76,6 @@
 		662A8129266E539100DD3685 /* MulltiQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulltiQuestion.swift; sourceTree = "<group>"; };
 		662A812A266E539100DD3685 /* ListQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListQuestion.swift; sourceTree = "<group>"; };
 		662A812B266E539200DD3685 /* OneChoiceQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneChoiceQuestion.swift; sourceTree = "<group>"; };
-		6651599326711D83006597BE /* LoginSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSuccessViewController.swift; sourceTree = "<group>"; };
 		666FFC172649088400347838 /* AppLearningEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppLearningEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		666FFC1A2649088400347838 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		666FFC1C2649088400347838 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -90,8 +88,8 @@
 		666FFC312649088600347838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		666FFC3B26493C3800347838 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		6695D0AD26723C980033870D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A3B00F760EDA009F82C67470 /* Pods-AppLearningEnglishTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglishTests.release.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglishTests/Pods-AppLearningEnglishTests.release.xcconfig"; sourceTree = "<group>"; };
-		E5C70D5C8873028809A79FA8 /* Pods-AppLearningEnglishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglishTests.debug.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglishTests/Pods-AppLearningEnglishTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6DF85F818A68EE9CE20C657C /* Pods-AppLearningEnglishTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglishTests.release.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglishTests/Pods-AppLearningEnglishTests.release.xcconfig"; sourceTree = "<group>"; };
+		75F8BD1B6784ADD4FB337407 /* Pods_AppLearningEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLearningEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				868D4814535BF6F5D4119B09 /* Pods_AppLearningEnglish.framework in Frameworks */,
+				8F0A5BE783108655A8635CF0 /* Pods_AppLearningEnglish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77B8001BC72147BF8497226A /* Pods_AppLearningEnglishTests.framework in Frameworks */,
+				753128983C28CB7D5774C07D /* Pods_AppLearningEnglishTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,10 +115,10 @@
 		1E7180213D7BE0410B37D250 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4C15194F0EB3A617F85C2E26 /* Pods-AppLearningEnglish.debug.xcconfig */,
-				6490546325B6F4AC649869AB /* Pods-AppLearningEnglish.release.xcconfig */,
-				E5C70D5C8873028809A79FA8 /* Pods-AppLearningEnglishTests.debug.xcconfig */,
-				A3B00F760EDA009F82C67470 /* Pods-AppLearningEnglishTests.release.xcconfig */,
+				3EFAA13D05057B2215941AEB /* Pods-AppLearningEnglish.debug.xcconfig */,
+				598E1561958D8B8A9A9564BC /* Pods-AppLearningEnglish.release.xcconfig */,
+				3654686CABCCE15E1DE6464D /* Pods-AppLearningEnglishTests.debug.xcconfig */,
+				6DF85F818A68EE9CE20C657C /* Pods-AppLearningEnglishTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -146,7 +144,7 @@
 				666FFC2E2649088600347838 /* AppLearningEnglishTests */,
 				666FFC182649088400347838 /* Products */,
 				1E7180213D7BE0410B37D250 /* Pods */,
-				D64D52B951EBDF7CC26F1B01 /* Frameworks */,
+				E0B693B09A56867FD7781752 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,7 +163,6 @@
 				666FFC1C2649088400347838 /* LoginViewController.swift */,
 				6607F995264B85C9001DC3CB /* ForgotPassViewController.swift */,
 				66205CB226622C3500A0C184 /* Basic1ViewController.swift */,
-				6651599326711D83006597BE /* LoginSuccessViewController.swift */,
 				66205CB426622C4D00A0C184 /* Basic2ViewController.swift */,
 				66205CB626622C6100A0C184 /* Basic3ViewController.swift */,
 				661DF67F2662961600B92CF1 /* High2ViewController.swift */,
@@ -198,20 +195,20 @@
 			isa = PBXGroup;
 			children = (
 				666FFC3B26493C3800347838 /* DesignableView.swift */,
-				660B55552676503000811A8A /* GoogleService-Info.plist */,
 				666FFC1A2649088400347838 /* AppDelegate.swift */,
 				666FFC212649088600347838 /* Assets.xcassets */,
+				661488CE2677A8620068EF2B /* GoogleService-Info.plist */,
 				666FFC232649088600347838 /* LaunchScreen.storyboard */,
 				666FFC262649088600347838 /* Info.plist */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		D64D52B951EBDF7CC26F1B01 /* Frameworks */ = {
+		E0B693B09A56867FD7781752 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				254382AABA4155173C4EADFC /* Pods_AppLearningEnglish.framework */,
-				64CB23E379DCB0FAC6B8CA18 /* Pods_AppLearningEnglishTests.framework */,
+				63ECA962C72161273337C816 /* Pods_AppLearningEnglish.framework */,
+				75F8BD1B6784ADD4FB337407 /* Pods_AppLearningEnglishTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -223,11 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 666FFC342649088600347838 /* Build configuration list for PBXNativeTarget "AppLearningEnglish" */;
 			buildPhases = (
-				09BC5E3DDE340570B0DD6B53 /* [CP] Check Pods Manifest.lock */,
+				A99C6FA3AA8FD88E08C4D9D2 /* [CP] Check Pods Manifest.lock */,
 				666FFC132649088400347838 /* Sources */,
 				666FFC142649088400347838 /* Frameworks */,
 				666FFC152649088400347838 /* Resources */,
-				A570E01A7E9404B1281AF4B3 /* [CP] Embed Pods Frameworks */,
+				208E24060E7AEC9F9E2FF464 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,7 +239,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 666FFC372649088600347838 /* Build configuration list for PBXNativeTarget "AppLearningEnglishTests" */;
 			buildPhases = (
-				95077786241C000FE512133D /* [CP] Check Pods Manifest.lock */,
+				E235CC03F26742363828ACEF /* [CP] Check Pods Manifest.lock */,
 				666FFC272649088600347838 /* Sources */,
 				666FFC282649088600347838 /* Frameworks */,
 				666FFC292649088600347838 /* Resources */,
@@ -301,7 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				666FFC252649088600347838 /* LaunchScreen.storyboard in Resources */,
-				660B55562676503000811A8A /* GoogleService-Info.plist in Resources */,
+				661488CF2677A8620068EF2B /* GoogleService-Info.plist in Resources */,
 				666FFC222649088600347838 /* Assets.xcassets in Resources */,
 				666FFC202649088400347838 /* Main.storyboard in Resources */,
 			);
@@ -317,7 +314,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09BC5E3DDE340570B0DD6B53 /* [CP] Check Pods Manifest.lock */ = {
+		208E24060E7AEC9F9E2FF464 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A99C6FA3AA8FD88E08C4D9D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,7 +353,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95077786241C000FE512133D /* [CP] Check Pods Manifest.lock */ = {
+		E235CC03F26742363828ACEF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -361,23 +375,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A570E01A7E9404B1281AF4B3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -394,7 +391,6 @@
 				66113888266A78BA000D763F /* ShopViewController.swift in Sources */,
 				666FFC1D2649088400347838 /* LoginViewController.swift in Sources */,
 				661DF6802662961600B92CF1 /* High2ViewController.swift in Sources */,
-				6651599426711D83006597BE /* LoginSuccessViewController.swift in Sources */,
 				662A8126266E534B00DD3685 /* LevelQuestionsViewController.swift in Sources */,
 				661A325F2668F9B100E291BE /* ResultViewController.swift in Sources */,
 				662A8128266E537E00DD3685 /* TrueFasleQuestion.swift in Sources */,
@@ -569,7 +565,7 @@
 		};
 		666FFC352649088600347838 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C15194F0EB3A617F85C2E26 /* Pods-AppLearningEnglish.debug.xcconfig */;
+			baseConfigurationReference = 3EFAA13D05057B2215941AEB /* Pods-AppLearningEnglish.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -587,7 +583,7 @@
 		};
 		666FFC362649088600347838 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6490546325B6F4AC649869AB /* Pods-AppLearningEnglish.release.xcconfig */;
+			baseConfigurationReference = 598E1561958D8B8A9A9564BC /* Pods-AppLearningEnglish.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -605,7 +601,7 @@
 		};
 		666FFC382649088600347838 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5C70D5C8873028809A79FA8 /* Pods-AppLearningEnglishTests.debug.xcconfig */;
+			baseConfigurationReference = 3654686CABCCE15E1DE6464D /* Pods-AppLearningEnglishTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -626,7 +622,7 @@
 		};
 		666FFC392649088600347838 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3B00F760EDA009F82C67470 /* Pods-AppLearningEnglishTests.release.xcconfig */;
+			baseConfigurationReference = 6DF85F818A68EE9CE20C657C /* Pods-AppLearningEnglishTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

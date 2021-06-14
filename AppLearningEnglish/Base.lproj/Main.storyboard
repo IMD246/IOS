@@ -123,7 +123,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HAT-aR-mZA"/>
+                                                    <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kg2-4c-gDT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -203,7 +203,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Eqb-PD-7qj"/>
                     <connections>
-                        <outlet property="btnLogin" destination="WJt-14-ydR" id="xPz-Ee-6UG"/>
                         <outlet property="txtPassword" destination="qW1-CO-5qQ" id="5Ma-5K-1HV"/>
                         <outlet property="txtUsername" destination="Kid-6a-MbA" id="Zqn-eN-S11"/>
                     </connections>
@@ -211,42 +210,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="97.767857142857139"/>
-        </scene>
-        <!--Login Success View Controller-->
-        <scene sceneID="Tki-zP-JgD">
-            <objects>
-                <viewController storyboardIdentifier="loginsuccess" wantsFullScreenLayout="YES" id="gCJ-8B-N0n" customClass="LoginSuccessViewController" customModule="AppLearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1tI-vJ-BIN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login Successful" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMY-89-RnQ">
-                                <rect key="frame" x="79" y="300" width="257" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yb1-4X-qLh">
-                                <rect key="frame" x="96" y="402" width="223" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="GO NEXT!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Rd5-Hp-enf" kind="presentation" id="JNX-7j-Whs"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="0kS-pC-XqB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DUb-hI-ptY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1711.5942028985507" y="107.8125"/>
         </scene>
         <!--Forgot Pass View Controller-->
         <scene sceneID="PHE-vd-h4Q">
@@ -1531,7 +1494,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A0B-si-nEy" kind="presentation" id="aFx-U7-T8D"/>
+                                            <action selector="checkFinish:" destination="Wcp-SD-vLZ" eventType="touchUpInside" id="gbq-98-gjQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUZ-ZI-iZF">
@@ -1703,7 +1666,6 @@
                         <viewLayoutGuide key="safeArea" id="p6Z-Bw-rGz"/>
                     </view>
                     <connections>
-                        <outlet property="btnFinish" destination="LNE-kE-b2p" id="O3b-GU-toU"/>
                         <outlet property="btnLeft" destination="Ba5-gT-lOt" id="LX7-PV-kQY"/>
                         <outlet property="btnRight" destination="pUZ-ZI-iZF" id="x53-9N-wxZ"/>
                         <outlet property="lblDescription" destination="Kl2-jl-cuz" id="zZs-qr-1R6"/>
@@ -1719,7 +1681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcP-c1-mTZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="1576"/>
+            <point key="canvasLocation" x="181" y="1576"/>
         </scene>
         <!--High1 View Controller-->
         <scene sceneID="MBV-3k-bb4">
@@ -1762,7 +1724,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A0B-si-nEy" kind="presentation" id="6DX-y8-R4A"/>
+                                            <action selector="checkFinish:" destination="m6U-gX-11q" eventType="touchUpInside" id="E8w-OS-YGM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgH-xR-gcS">
@@ -1929,7 +1891,6 @@
                         <viewLayoutGuide key="safeArea" id="mY5-Gf-hDQ"/>
                     </view>
                     <connections>
-                        <outlet property="btnFinish" destination="U1S-G6-ygg" id="p2J-g2-kJ3"/>
                         <outlet property="btnLeft" destination="hp7-n5-nTm" id="dqs-2d-2UN"/>
                         <outlet property="btnRight" destination="BgH-xR-gcS" id="kno-Tr-tNO"/>
                         <outlet property="correctARadioBtn" destination="TI2-1E-tue" id="3rs-Kr-ntc"/>
@@ -1991,7 +1952,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A0B-si-nEy" kind="presentation" id="luK-Q5-SXF"/>
+                                            <action selector="checkFinish:" destination="g4X-Eh-ugq" eventType="touchUpInside" id="3h0-HN-9Q7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypY-fK-fKI">
@@ -2174,7 +2135,6 @@
                         <outlet property="boolCorrectB" destination="7ZB-IC-ZDx" id="gSo-69-fcj"/>
                         <outlet property="boolCorrectC" destination="LFD-Ol-1rE" id="BDr-jg-nmw"/>
                         <outlet property="boolCorrectD" destination="JdF-oM-465" id="ujd-zw-ZEN"/>
-                        <outlet property="btnFinish" destination="fs2-xd-ZY7" id="VjE-uF-OFs"/>
                         <outlet property="btnLeft" destination="MyN-1u-3cd" id="kFh-Zf-Jrl"/>
                         <outlet property="btnRight" destination="ypY-fK-fKI" id="kus-au-65w"/>
                         <outlet property="correctA" destination="xgN-pQ-kbF" id="a1e-QV-M6O"/>
@@ -2191,7 +2151,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oyx-qa-s4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ePG-Xm-nF2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2987" y="2409"/>
+            <point key="canvasLocation" x="4610" y="1576"/>
         </scene>
         <!--Basic2 View Controller-->
         <scene sceneID="SpU-td-inG">
@@ -2237,7 +2197,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A0B-si-nEy" kind="presentation" id="Qaf-YJ-d55"/>
+                                            <action selector="checkFinish:" destination="nNq-5v-n3F" eventType="touchUpInside" id="CZi-hu-czy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="469-eF-dl7">
@@ -2393,7 +2353,6 @@
                         <viewLayoutGuide key="safeArea" id="6Aa-lC-blm"/>
                     </view>
                     <connections>
-                        <outlet property="btnFinish" destination="4xM-YQ-57S" id="Xl5-kf-YSj"/>
                         <outlet property="btnLeft" destination="f8b-dK-BAc" id="HNZ-pE-CLO"/>
                         <outlet property="btnRight" destination="469-eF-dl7" id="f8L-31-WHU"/>
                         <outlet property="correctACheckbox" destination="dez-qe-sHz" id="Js3-FG-Yx3"/>
@@ -2415,7 +2374,7 @@
         <!--Result View Controller-->
         <scene sceneID="eLB-HR-zV0">
             <objects>
-                <viewController id="A0B-si-nEy" customClass="ResultViewController" customModule="AppLearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="result" id="A0B-si-nEy" customClass="ResultViewController" customModule="AppLearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyC-S0-bwL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2594,7 +2553,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A0B-si-nEy" kind="presentation" id="NRI-Ri-dR6"/>
+                                            <action selector="checkFinish:" destination="sdF-LD-Gyd" eventType="touchUpInside" id="bqp-mU-NKf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-3x-Z0X">
@@ -2777,7 +2736,6 @@
                         <outlet property="boolCorrectB" destination="nu5-2R-WYG" id="Tkr-0C-IDA"/>
                         <outlet property="boolCorrectC" destination="4vp-28-vzu" id="keY-Pd-7mK"/>
                         <outlet property="boolCorrectD" destination="lzX-Vl-hSu" id="Th6-yg-xvH"/>
-                        <outlet property="btnFinish" destination="IY2-xD-QbJ" id="aWK-fA-AGg"/>
                         <outlet property="btnLeft" destination="pkD-wo-xK3" id="Chw-EI-APV"/>
                         <outlet property="btnRight" destination="bmi-3x-Z0X" id="gyT-EE-Cxk"/>
                         <outlet property="correctA" destination="fg9-M2-BCz" id="Ty1-eJ-bcE"/>
@@ -2794,7 +2752,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYu-1L-d6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5Zh-3B-6Bq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1934.7826086956522" y="2366.5178571428569"/>
+            <point key="canvasLocation" x="1888" y="1576"/>
         </scene>
         <!--High2 View Controller-->
         <scene sceneID="b1Y-2J-XOl">
@@ -2840,7 +2798,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A0B-si-nEy" kind="presentation" id="0Hm-Dq-TRc"/>
+                                            <action selector="checkFinish:" destination="9cN-sF-CaD" eventType="touchUpInside" id="crI-EU-bze"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7p-Qp-4Bl">
@@ -2993,7 +2951,6 @@
                         <viewLayoutGuide key="safeArea" id="iu1-mG-BPr"/>
                     </view>
                     <connections>
-                        <outlet property="btnFinish" destination="lOG-j2-mQa" id="guQ-Ti-mOh"/>
                         <outlet property="btnLeft" destination="oti-uJ-eJn" id="KJO-FD-awN"/>
                         <outlet property="btnRight" destination="r7p-Qp-4Bl" id="RVa-Yv-K1w"/>
                         <outlet property="lblDescription" destination="IWb-e7-YdR" id="yBc-QB-aZH"/>
@@ -3048,7 +3005,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ikf-GR-oXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2380" y="108"/>
+            <point key="canvasLocation" x="2014" y="98"/>
         </scene>
         <!--Edit Profile View Controller-->
         <scene sceneID="yZW-2L-7h9">
@@ -3357,7 +3314,6 @@
         <image name="shop" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qaf-YJ-d55"/>
         <segue reference="cSE-hC-ip1"/>
     </inferredMetricsTieBreakers>
 </document>

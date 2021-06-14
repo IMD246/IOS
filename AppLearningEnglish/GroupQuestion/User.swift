@@ -62,7 +62,7 @@ class User {
     }
     init(name:String,password:String, user:String, gender:String, age:Int, phone:String, point:Int) {
         if name == "" || user == "" || password == "" || gender == "" || age <= 0 || phone == "" || point < 0{
-            fatalError("Data unvalid")
+            print("Data invalid")
         }
         else{
             self.password = password

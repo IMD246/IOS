@@ -51,16 +51,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         }
         let v = Int(edtAge.text ?? "0")
         if edtUserName.text == nil || edtPassword.text == nil || edtAge.text == nil ||  edtName.text == nil || gender == "" {
-            print("input invalid")
+            let alert = UIAlertController(title: "Message", message: "input invalid", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
         }
         else if(edtPassword.text != edtRepass.text){
-            print("password not equal to confirm pass")
+            let alert = UIAlertController(title: "Message", message: "password not equal to confirm pass", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
         }
         else if check1 == false{
-            print("acount user duplicate")
+            let alert = UIAlertController(title: "Message", message: "acount user duplicate", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
         }
         else{
             let user = User(name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0)
+            let alert = UIAlertController(title: "Message", message: "Register successful", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
             listData.insertUser(user: user)
         }
         

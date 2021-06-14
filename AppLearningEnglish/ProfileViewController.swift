@@ -24,7 +24,6 @@ class ProfileViewController: UIViewController {
         lblName.text = users.name
         lblPhone.text = users.phone
         lblGender.text = users.gender
-        
     }
     
     /*

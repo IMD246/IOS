@@ -105,10 +105,25 @@ class Basic1ViewController: UIViewController {
             answer.append(3)
         }
     }
+    
+    @IBAction func checkFinish(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Message", message: "Do you want to finish ?", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "Yes", style: .default, handler:{  action in
+            //Write your code here
+            let passResult = self.storyboard!.instantiateViewController(withIdentifier: "result") as! ResultViewController
+            passResult.question.listQuestion.removeAll()
+            self.checkAnswer()
+            self.question.listQuestion[0].setQuestionAnswer(questionAnswer: self.answer)
+            passResult.question.listQuestion = self.question.listQuestion
+            self.present(passResult, animated: false, completion: nil)
+        })
+        alert.addAction(acceptAction)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
         if let button = sender as? UIButton , button === btnRight
         {
             guard let pass2 = segue.destination as? Basic2ViewController else {return}
@@ -128,15 +143,6 @@ class Basic1ViewController: UIViewController {
             pass2.question.listQuestion = question.listQuestion
             pass2.check2 = check1
             pass2.check3 = check2
-            
-        }
-        else if let button = sender as? UIButton , button === btnFinish{
-            
-            guard let passResult = segue.destination as? ResultViewController else {return}
-            passResult.question.listQuestion.removeAll()
-            checkAnswer()
-            question.listQuestion[0].setQuestionAnswer(questionAnswer: answer)
-            passResult.question.listQuestion = question.listQuestion
             
         }
     }
