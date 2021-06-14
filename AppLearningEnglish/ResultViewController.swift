@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ResultViewController: UIViewController {
     
@@ -18,18 +19,19 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var result1: UILabel!
     @IBOutlet weak var result2: UILabel!
     @IBOutlet weak var result3: UILabel!
-    
+    var listData = listUser()
     let question = ListQuestion()
     var level:[String] = []
     @IBOutlet weak var score: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(us)
         level = handleQuestions(lQues: question)
         result1.text = level[0]
         result2.text = level[1]
         result3.text = level[2]
         let total = handlePoint(lQues: question)
+        listData.updateScore(username: us, score: total as Int)
         lbTotal.text = "\(total)"
         //print("Tong: \(tong)")
     }

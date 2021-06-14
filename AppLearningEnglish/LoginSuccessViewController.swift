@@ -7,16 +7,17 @@
 //
 
 import UIKit
-
+public var us=""
 class LoginSuccessViewController: UIViewController {
     var temp:String!
     let a:Int? = 0
     var b:Int!
     var users:User!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-    
     
     
     // MARK: - Navigation
@@ -26,6 +27,7 @@ class LoginSuccessViewController: UIViewController {
         guard let pass = segue.destination as? UITabBarController else {return}
         let pass1 = pass.viewControllers?.first as! ProfileViewController
         pass1.users = users
+      us = users.userName
     }
     
 }

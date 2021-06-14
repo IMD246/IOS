@@ -31,6 +31,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         // Do any additional setup after loading the view.
         listData.getDataFromFireBase()
         
+        
     }
     //Mark: TextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -50,6 +51,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
         
         if self.checkLogin == true{
+            listData.updateScore(username: txtUsername.text ?? "",score: 11)
             let users:User
             users = listData.list[count]
             let vc = self.storyboard!.instantiateViewController(withIdentifier: "loginsuccess") as! LoginSuccessViewController
