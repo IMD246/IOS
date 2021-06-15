@@ -20,7 +20,6 @@ class High1ViewController: UIViewController {
     @IBOutlet weak var correctCRadioBtn: UIButton!
     @IBOutlet weak var correctDRadioBtn: UIButton!
     @IBOutlet weak var btnLeft: UIButton!
-    @IBOutlet weak var btnFinish: UIButton!
     @IBOutlet weak var btnRight: UIButton!
     var answer:[Int] = []
     let question = ListQuestion()
@@ -29,6 +28,8 @@ class High1ViewController: UIViewController {
     var check2:[Int] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnLeft.isEnabled = false
+        btnLeft.backgroundColor = UIColor.lightGray
         multi = question.listQuestion[0] as! MultiQuestion
         self.correctARadioBtn.isSelected = false
         self.correctBRadioBtn.isSelected = false
@@ -94,6 +95,21 @@ class High1ViewController: UIViewController {
             answer.append(3)
         }
     }
+    @IBAction func checkFinish(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Message", message: "Do you want to finish ?", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "Yes", style: .default, handler:{  action in
+            //Write your code here
+            let passResult = self.storyboard!.instantiateViewController(withIdentifier: "result") as! ResultViewController
+            self.checkAnswer()
+            passResult.question.listQuestion.removeAll()
+            self.question.listQuestion[0].setQuestionAnswer(questionAnswer: self.answer)
+            passResult.question.listQuestion = self.question.listQuestion
+            self.present(passResult, animated: false, completion: nil)
+        })
+        alert.addAction(acceptAction)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
     
     // MARK: - Navigation
     var temp2:String!
@@ -123,14 +139,6 @@ class High1ViewController: UIViewController {
             pass2.check3 = check2
             
         }
-        else if let button = sender as? UIButton , button === btnFinish{
-            checkAnswer()
-            guard let passResult = segue.destination as? ResultViewController else {return}
-            passResult.question.listQuestion.removeAll()
-            question.listQuestion[0].setQuestionAnswer(questionAnswer: answer)
-            passResult.question.listQuestion = question.listQuestion
-            
-        }//
     }
     @IBAction func unwindHigh2(_ sender:UIStoryboardSegue)
     {

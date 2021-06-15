@@ -21,7 +21,7 @@ class ListQuestion{
         multichoice2.level = "High"
         multichoice2.setDescription(newDescription: "What the hell")
         multichoice2.setMultiChoice(newMultiChoice: ["2","4","6","8"])
-        multichoice2.setQuestionCorrect(newQuestionCorrect: [0])
+        multichoice2.setQuestionCorrect(newQuestionCorrect: [0,1])
         listQuestion.append(multichoice2)
         
         //Multiquesion 2

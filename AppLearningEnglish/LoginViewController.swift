@@ -12,11 +12,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     //MARK: properties
-    @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtUsername: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
-    var temp:String = "ab"
     var tempuser:String!
     
     var temppassword:String!
@@ -42,7 +40,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     //MARK: LOGIN
     @IBAction func Login(_ sender: UIButton)
     {
-        for i in 0..<listData.list.count{
+        for i in 0..<listData.list.count
+        {
             if txtUsername.text == listData.list[i].userName,txtPassword.text == listData.list[i].password{
                 checkLogin = true
                 count = i
@@ -54,35 +53,24 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             listData.updateScore(username: txtUsername.text ?? "",score: 11)
             let users:User
             users = listData.list[count]
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "loginsuccess") as! LoginSuccessViewController
-            vc.users = users
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
+            let pass = vc.viewControllers?.first as! ProfileViewController
+           pass.users = users
             present(vc, animated: true, completion: nil)
-            
+            print(users.age)
         }
-        else{print("")}
+        else{
+            let alert = UIAlertController(title: "Message", message: "Wrong account or password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
         
     }
-    
-    
-    //        if temp == "ab"
-    //        {
-    //            let vc = self.storyboard!.instantiateViewController(withIdentifier: "loginsuccess") as! LoginSuccessViewController
-    //            vc.temp = "abc"
-    //            present(vc, animated: true, completion: nil)
-    //
-    //
-    //
-    //            print("dang nhap")
-    //        }
-    
     //MARK: UNWIND
     @IBAction func unwindReturn(_ sender:UIStoryboardSegue)
     {
-        txtUsername.text = ""
+        txtUsername.text = nil
         txtPassword.text = nil
+        checkLogin = false
     }
-    
 }
-
-
-

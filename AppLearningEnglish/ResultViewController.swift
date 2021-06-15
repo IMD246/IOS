@@ -31,7 +31,11 @@ class ResultViewController: UIViewController {
         result2.text = level[1]
         result3.text = level[2]
         let total = handlePoint(lQues: question)
+<<<<<<< HEAD
         listData.updateScore(username: us, score: total as Int)
+=======
+        listData.updateScore(username: userNameLoginData.userName, score: total)
+>>>>>>> main
         lbTotal.text = "\(total)"
         //print("Tong: \(tong)")
     }

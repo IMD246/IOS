@@ -53,9 +53,15 @@ class listUser {
                 }
                 else if snapshot.exists()
                 {
+<<<<<<< HEAD
 
                     for i in 0..<snapshot.childrenCount{
                       
+=======
+                    
+                    for i in 0..<snapshot.childrenCount{
+                        
+>>>>>>> main
                         if snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "username").value as? String == username
                         {
                             ref.child("users/\(i)").updateChildValues(["score": score]) {
@@ -70,7 +76,42 @@ class listUser {
                     }
                 }
                 else{}
+<<<<<<< HEAD
      
+=======
+                
+        }
+    }
+    func updateUserData(username:String,name:String,phone:String,age:Int,gender:String) {
+        
+        let ref = Database.database().reference()
+        ref.child("users").getData
+            {
+                (error, snapshot) in
+                if let error = error {
+                    print("Error getting data \(error)")
+                }
+                else if snapshot.exists()
+                {
+                    
+                    for i in 0..<snapshot.childrenCount{
+                        
+                        if snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "username").value as? String == username
+                        {
+                            ref.child("users/\(i)").updateChildValues(["name": name,"phone":phone,"age":age,"gender":gender]) {
+                                (error:Error?, ref:DatabaseReference) in
+                                if let error = error {
+                                    print("Data could not be saved: \(error).")
+                                } else {
+                                    print("Data saved successfully!")
+                                }
+                            }
+                        }
+                    }
+                }
+                else{}
+                
+>>>>>>> main
         }
     }
     func insertUser(user:User) {
@@ -103,5 +144,9 @@ class listUser {
 //        var update = ["name" : user.name , "password" : user.password,"username" : user.userName,"gender" : user.gender,"age" : user.age,"phone" : user.phone] as [String : Any]
 //        ref.updateChildValues(update)
 //    }
+<<<<<<< HEAD
         
+=======
+       
+>>>>>>> main
     }}

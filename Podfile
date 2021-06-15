@@ -8,6 +8,7 @@ target 'AppLearningEnglish' do
   # Pods for AppLearningEnglish
 pod 'Firebase/Analytics'
 pod 'Firebase/Core'
+pod 'SCLAlertView'
 pod 'Firebase/Database'
   target 'AppLearningEnglishTests' do
     inherit! :search_paths
