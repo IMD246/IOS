@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class User {
+public class User {
     var name:String = ""
     var userName:String = ""
     var gender:String = ""

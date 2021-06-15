@@ -42,6 +42,68 @@ class listUser {
                 }
         }
     }
+    func updateScore(username:String,score:Int) {
+        
+        let ref = Database.database().reference()
+        ref.child("users").getData
+            {
+                (error, snapshot) in
+                if let error = error {
+                    print("Error getting data \(error)")
+                }
+                else if snapshot.exists()
+                {
+                    
+                    for i in 0..<snapshot.childrenCount{
+                        
+                        if snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "username").value as? String == username
+                        {
+                            ref.child("users/\(i)").updateChildValues(["score": score]) {
+                                (error:Error?, ref:DatabaseReference) in
+                                if let error = error {
+                                    print("Data could not be saved: \(error).")
+                                } else {
+                                    print("Data saved successfully!")
+                                }
+                            }
+                        }
+                    }
+                }
+                else{}
+                
+        }
+    }
+    func updateUserData(username:String,name:String,phone:String,age:Int,gender:String) {
+        
+        let ref = Database.database().reference()
+        ref.child("users").getData
+            {
+                (error, snapshot) in
+                if let error = error {
+                    print("Error getting data \(error)")
+                }
+                else if snapshot.exists()
+                {
+                    
+                    for i in 0..<snapshot.childrenCount{
+                        
+                        if snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "username").value as? String == username
+                        {
+                            ref.child("users/\(i)").updateChildValues(["name": name,"phone":phone,"age":age,"gender":gender]) {
+                                (error:Error?, ref:DatabaseReference) in
+                                if let error = error {
+                                    print("Data could not be saved: \(error).")
+                                } else {
+                                    print("Data saved successfully!")
+                                }
+                            }
+                        }
+                    }
+                }
+                else{}
+                
+        }
+    }
     func insertUser(user:User) {
         let ref = Database.database().reference()
         ref.child("users").getData
@@ -70,10 +132,5 @@ class listUser {
 //        var update = ["name" : user.name , "password" : user.password,"username" : user.userName,"gender" : user.gender,"age" : user.age,"phone" : user.phone] as [String : Any]
 //        ref.updateChildValues(update)
 //    }
-//    func updateScore(username:String,score:Int) {
-//        let ref = Database.database().reference()
-//        //hoặc có thể để nó tự tạo id bằng câu lệnh tuy nhiên id tự tạo thuong có hơn 30 chữ cái khó gọi
-////        var update = ["username":username,"score":user.score] as [String : Any]
-//        ref.updateChildValues(update)
-//    }
+       
     }}

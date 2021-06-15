@@ -756,7 +756,6 @@
                                         </state>
                                         <connections>
                                             <action selector="createUser:" destination="awb-3X-098" eventType="touchUpInside" id="Ti1-H6-qAX"/>
-                                            <segue destination="8xr-cA-sc5" kind="unwind" unwindAction="unwindReturn:" id="qOX-Yd-sHc"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5eO-bV-sUv">
@@ -798,7 +797,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Asg-wg-wwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="8xr-cA-sc5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1039" y="807"/>
         </scene>
@@ -3011,7 +3009,7 @@
         <scene sceneID="yZW-2L-7h9">
             <objects>
                 <viewController id="RWq-Oi-AME" customClass="EditProfileViewController" customModule="AppLearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xmy-KX-M98" customClass="A">
+                    <view key="view" contentMode="scaleToFill" id="Xmy-KX-M98">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -3266,6 +3264,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="finshEditing:" destination="RWq-Oi-AME" eventType="touchUpInside" id="YS1-fV-mh3"/>
                                             <segue destination="DZr-UE-OSC" kind="unwind" unwindAction="unwindComeBackFromEdit:" id="3QL-yx-cnf"/>
                                         </connections>
                                     </button>

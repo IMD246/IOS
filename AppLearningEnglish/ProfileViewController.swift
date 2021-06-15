@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+public var userNameLoginData:User!
 class ProfileViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblGender: UILabel!
@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblDate: UILabel!
     
     var users:User!
-    
+   
     var temp:String!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
         lblName.text = users.name
         lblPhone.text = users.phone
         lblGender.text = users.gender
+        userNameLoginData = users
     }
     
     /*

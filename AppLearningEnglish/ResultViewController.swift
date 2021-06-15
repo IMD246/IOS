@@ -18,7 +18,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var result1: UILabel!
     @IBOutlet weak var result2: UILabel!
     @IBOutlet weak var result3: UILabel!
-    
+    var listData = listUser()
     let question = ListQuestion()
     var level:[String] = []
     @IBOutlet weak var score: UILabel!
@@ -30,6 +30,7 @@ class ResultViewController: UIViewController {
         result2.text = level[1]
         result3.text = level[2]
         let total = handlePoint(lQues: question)
+        listData.updateScore(username: userNameLoginData.userName, score: total)
         lbTotal.text = "\(total)"
         //print("Tong: \(tong)")
     }
