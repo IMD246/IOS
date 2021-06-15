@@ -7,40 +7,55 @@
 //
 
 import UIKit
-
 class RankTableViewController: UITableViewController {
-
     
     var user:User!
+    var listData = listUser()
+    var listRanking:[User] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         //
         let tab = tabBarController?.viewControllers
         let pro = tab![0] as! ProfileViewController
         pro.users = user
+        listRanking = listData.GetTop10(listTemp: listAllUserData)
+        print(listRanking.count)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listRanking.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        
+        
+        let reuseCell = "RankingTableViewCell"
         // Configure the cell...
+        if let cell = tableView.dequeueReusableCell(withIdentifier: reuseCell, for: indexPath) as? RankingTableViewCell{
+            let user = listRanking[indexPath.row]
+            cell.RankName.text = user.name
+            cell.RankScore.text = String(user.point)
+            cell.RankPosition.text = "Top \(indexPath.row + 1)"
+            return cell
 
-        return cell
+        }
+        else{
+            fatalError("Cell Can not be Created")
+            
+        }
+      
+
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

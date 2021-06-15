@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+public var listAllUserData:[User] = []
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
@@ -56,6 +57,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
            pass.users = users
             present(vc, animated: true, completion: nil)
             print(users.age)
+            listAllUserData = listData.list
         }
         else{
             let alert = UIAlertController(title: "Message", message: "Wrong account or password", preferredStyle: .alert)

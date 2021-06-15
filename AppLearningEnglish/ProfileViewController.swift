@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblDate: UILabel!
     
     var users:User!
-   
     var temp:String!
     override func viewDidLoad() {
         super.viewDidLoad()

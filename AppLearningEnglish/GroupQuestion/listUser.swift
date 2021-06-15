@@ -42,6 +42,27 @@ class listUser {
                 }
         }
     }
+    func GetTop10(listTemp:[User]) -> [User] {
+        var ListRanking:[User] = []
+        var max:Int = 0
+        for i in 0..<listTemp.count{
+       
+            if max <= listTemp[i].point{
+                max = listTemp[i].point
+                
+
+            }
+        }
+        for i in 0..<listTemp.count{
+         
+            if max >= listTemp[i].point{
+                
+                ListRanking.append(listTemp[i] )
+                
+            }
+        }
+        return ListRanking
+    }
     func updateScore(username:String,score:Int) {
         
         let ref = Database.database().reference()
@@ -73,6 +94,7 @@ class listUser {
                 
         }
     }
+    
     func updateUserData(username:String,name:String,phone:String,age:Int,gender:String) {
         
         let ref = Database.database().reference()
