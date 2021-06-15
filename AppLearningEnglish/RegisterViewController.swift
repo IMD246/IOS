@@ -85,7 +85,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
-       
         else{
             let user = User(name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0)
             let alert = UIAlertController(title: "Message", message: "Register successful", preferredStyle: .alert)

@@ -10,20 +10,14 @@ import UIKit
 
 class RankTableViewController: UITableViewController {
 
-    var temp:String = ""
     
+    var user:User!
     override func viewDidLoad() {
         super.viewDidLoad()
         //
         let tab = tabBarController?.viewControllers
         let pro = tab![0] as! ProfileViewController
-        temp = pro.temp
-        print(temp)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        pro.users = user
     }
 
     // MARK: - Table view data source

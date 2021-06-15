@@ -119,7 +119,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="Nh7-T3-UNK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                <state key="normal" title="Continue">
+                                                <state key="normal" title="Login">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -751,7 +751,7 @@
                                             <constraint firstAttribute="width" constant="378" id="dTm-b7-XAm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <state key="normal" title="Continue">
+                                        <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -3056,7 +3056,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3168,7 +3168,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3209,7 +3209,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3260,7 +3260,7 @@
                                             <constraint firstAttribute="width" constant="378" id="vGz-2P-7Aq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <state key="normal" title="Continue">
+                                        <state key="normal" title="Apply">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -3279,7 +3279,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btnContinue" destination="ygg-rQ-PUR" id="e87-J9-KZ9"/>
-                        <outlet property="edtAge" destination="eTo-rV-oAf" id="V9B-sK-BHy"/>
+                        <outlet property="edtAge" destination="edD-n4-Abn" id="cUg-FR-OQO"/>
                         <outlet property="edtName" destination="GA1-XI-oue" id="v0r-fk-HSy"/>
                         <outlet property="edtPhone" destination="eTo-rV-oAf" id="x9e-de-3kj"/>
                         <outlet property="femaleBtn" destination="s6s-yt-NwG" id="FYh-UB-M8K"/>
@@ -3289,7 +3289,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9Q-8T-4q1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DZr-UE-OSC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="98"/>
+            <point key="canvasLocation" x="3989.8550724637685" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>

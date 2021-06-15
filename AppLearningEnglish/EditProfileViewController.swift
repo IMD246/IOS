@@ -34,7 +34,6 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate {
         edtName.text = nameUser
         edtAge.text = "\(ageUser)"
         edtPhone.text = phoneUser
-        print("\(ageUser)")
         // Do any additional setup after loading the view.
     }
     //Mark: TextFieldDelegate
@@ -48,8 +47,6 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate {
             self.present(alert, animated: true)
         }
         else{
-            
-
         listData.updateUserData(username: userNameLoginData.userName, name: edtName.text ?? nameUser, phone: edtPhone.text ?? phoneUser, age: Int(edtAge.text ?? "") ?? ageUser, gender: gender )
             let alert = UIAlertController(title: "Message", message: "success editting", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -57,11 +54,13 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate {
         }
         
     }
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //Hidden the keyboard
-        textField.resignFirstResponder();
-        return true;
-    }
+//    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        if (textField == districtTextField) {
+//            districtPickerView.hidden = false
+//            return false
+//        }
+//        return true
+//    }
     //MARK: Re-Gender
     func isselectionGender(_ isselected:Bool) {
         if isselected{
