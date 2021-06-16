@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseDatabase
-public var listAllUserData:[User] = []
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
@@ -29,7 +28,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         txtPassword.delegate = self
         // Do any additional setup after loading the view.
         listData.getDataFromFireBase()
-        
     }
     //Mark: TextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -54,10 +52,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             users = listData.list[count]
             let vc = self.storyboard!.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
             let pass = vc.viewControllers?.first as! ProfileViewController
-           pass.users = users
+            pass.users = users
+            pass.listUsers = listData
+            pass.listUs = listData.list
             present(vc, animated: true, completion: nil)
-            print(users.age)
-            listAllUserData = listData.list
         }
         else{
             let alert = UIAlertController(title: "Message", message: "Wrong account or password", preferredStyle: .alert)

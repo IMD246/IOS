@@ -10,7 +10,6 @@
 		1347551206D90B1A6CD33F3F /* Pods_AppLearningEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB2273FA26AC54F7135A70D9 /* Pods_AppLearningEnglish.framework */; };
 		6607F996264B85C9001DC3CB /* ForgotPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6607F995264B85C9001DC3CB /* ForgotPassViewController.swift */; };
 		660B555426764EBF00811A8A /* listUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660B555326764EBE00811A8A /* listUser.swift */; };
-		660CCDDE2679D6D400008FF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 660CCDDD2679D6D300008FF5 /* GoogleService-Info.plist */; };
 		66113882266A7817000D763F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113881266A7817000D763F /* RegisterViewController.swift */; };
 		66113884266A7851000D763F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113883266A7851000D763F /* ProfileViewController.swift */; };
 		66113886266A788F000D763F /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66113885266A788F000D763F /* EditProfileViewController.swift */; };
@@ -38,6 +37,7 @@
 		666FFC302649088600347838 /* AppLearningEnglishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FFC2F2649088600347838 /* AppLearningEnglishTests.swift */; };
 		666FFC3C26493C3800347838 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FFC3B26493C3800347838 /* DesignableView.swift */; };
 		6695D0AE26723C980033870D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6695D0AD26723C980033870D /* User.swift */; };
+		66AE34E5267A2D9A0000386F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 66AE34E4267A2D9A0000386F /* GoogleService-Info.plist */; };
 		BAF1BEDE9CBFB157126FF3CF /* Pods_AppLearningEnglishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA426495F5545E5F53F5800E /* Pods_AppLearningEnglishTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,6 @@
 		62838E0B13391DEF1151C0B5 /* Pods-AppLearningEnglishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglishTests.debug.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglishTests/Pods-AppLearningEnglishTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6607F995264B85C9001DC3CB /* ForgotPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassViewController.swift; sourceTree = "<group>"; };
 		660B555326764EBE00811A8A /* listUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = listUser.swift; sourceTree = "<group>"; };
-		660CCDDD2679D6D300008FF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../AppLearningEnglish/AppLearningEnglish/SupportingFiles/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		66113881266A7817000D763F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		66113883266A7851000D763F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		66113885266A788F000D763F /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		666FFC312649088600347838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		666FFC3B26493C3800347838 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		6695D0AD26723C980033870D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		66AE34E4267A2D9A0000386F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA426495F5545E5F53F5800E /* Pods_AppLearningEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLearningEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF5F61726C43E2F2109B4D4 /* Pods-AppLearningEnglishTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglishTests.release.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglishTests/Pods-AppLearningEnglishTests.release.xcconfig"; sourceTree = "<group>"; };
 		E354E8F2DF72BC558BBAA0E8 /* Pods-AppLearningEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLearningEnglish.debug.xcconfig"; path = "Target Support Files/Pods-AppLearningEnglish/Pods-AppLearningEnglish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		666FFC3A264908AB00347838 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				660CCDDD2679D6D300008FF5 /* GoogleService-Info.plist */,
+				66AE34E4267A2D9A0000386F /* GoogleService-Info.plist */,
 				666FFC3B26493C3800347838 /* DesignableView.swift */,
 				666FFC1A2649088400347838 /* AppDelegate.swift */,
 				666FFC212649088600347838 /* Assets.xcassets */,
@@ -301,7 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				666FFC252649088600347838 /* LaunchScreen.storyboard in Resources */,
-				660CCDDE2679D6D400008FF5 /* GoogleService-Info.plist in Resources */,
+				66AE34E5267A2D9A0000386F /* GoogleService-Info.plist in Resources */,
 				666FFC222649088600347838 /* Assets.xcassets in Resources */,
 				666FFC202649088400347838 /* Main.storyboard in Resources */,
 			);

@@ -16,7 +16,6 @@ class RankingTableViewCell: UITableViewCell {
     @IBOutlet weak var RankName: UILabel!
     @IBOutlet weak var RankScore: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

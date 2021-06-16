@@ -9,17 +9,15 @@
 import UIKit
 class RankTableViewController: UITableViewController {
     
-    var user:User!
     var listData = listUser()
+    var listUsers:[User] = []
     var listRanking:[User] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        //
         let tab = tabBarController?.viewControllers
         let pro = tab![0] as! ProfileViewController
-        pro.users = user
-        listRanking = listData.GetTop10(listTemp: listAllUserData)
-        print(listRanking.count)
+        listUsers = pro.listUs
+        listRanking = listData.GetTop10(listTemp: listUsers)
     }
     
     // MARK: - Table view data source
@@ -33,8 +31,6 @@ class RankTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return listRanking.count
     }
-    
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reuseCell = "RankingTableViewCell"
         // Configure the cell...
@@ -43,12 +39,19 @@ class RankTableViewController: UITableViewController {
             cell.RankName.text = user.name
             cell.RankScore.text = String(user.point)
             cell.RankPosition.text = "Top \(indexPath.row + 1)"
+            if(user.urlImage != "")
+            {
+                let url = URL(string: user.urlImage)
+                let data = try? Data(contentsOf: url!)
+                if let imageData = data{
+                    let image1 = UIImage(data: imageData)
+                    cell.RankImage.image = image1
+                }
+            }
             return cell
-            
         }
         else{
             fatalError("Cell Can not be Created")
-            
         }
     }
     
@@ -97,5 +100,4 @@ class RankTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
 }

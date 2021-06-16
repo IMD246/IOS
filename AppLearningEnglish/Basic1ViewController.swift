@@ -143,7 +143,6 @@ class Basic1ViewController: UIViewController {
             pass2.question.listQuestion = question.listQuestion
             pass2.check2 = check1
             pass2.check3 = check2
-            
         }
     }
     @IBAction func unwindBasic2(_ sender:UIStoryboardSegue)
