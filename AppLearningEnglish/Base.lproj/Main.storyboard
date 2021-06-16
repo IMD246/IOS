@@ -736,6 +736,9 @@
                                                                 <state key="normal" title="Pick Image">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="didTapButton" destination="awb-3X-098" eventType="touchUpInside" id="vfd-xQ-D2W"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -792,6 +795,7 @@
                         <outlet property="edtPhone" destination="bPv-dB-JxN" id="EIZ-Wh-qd5"/>
                         <outlet property="edtRepass" destination="Kaa-8K-dRO" id="QIo-dc-5rb"/>
                         <outlet property="edtUserName" destination="9a7-FA-2e9" id="Z48-DP-Lg1"/>
+                        <outlet property="imageView" destination="8bq-kG-M2t" id="umg-RI-EOX"/>
                         <outlet property="rdbFemale" destination="gXv-dW-90Y" id="8hv-3J-Z0x"/>
                         <outlet property="rdbMale" destination="4pi-o2-JIN" id="fd4-cx-QVh"/>
                     </connections>
@@ -1244,6 +1248,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="image" destination="ot4-7m-mcz" id="zUm-o8-MyJ"/>
                         <outlet property="lblAge" destination="7vh-cq-1Io" id="bK0-pp-una"/>
                         <outlet property="lblDate" destination="EPh-cg-OkZ" id="T9f-Gg-AgI"/>
                         <outlet property="lblGender" destination="VQb-vk-P0A" id="KQR-yN-7cO"/>

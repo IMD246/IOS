@@ -8,6 +8,7 @@
 
 import UIKit
 public class User {
+    var id:Int?
     var name:String = ""
     var userName:String = ""
     var gender:String = ""
@@ -15,6 +16,7 @@ public class User {
     var phone:String = ""
     var password:String = ""
     var point:Int = 0
+    var urlImage:String = ""
     
     //Constructor
     func getName()->String{
@@ -32,6 +34,12 @@ public class User {
     func getGender()->String{
         return gender
     }
+    func setURLImage(urlImage:String){
+        self.urlImage = urlImage
+    }
+    func getImage()->String{
+        return urlImage
+    }
     func getAge()->Int{
         return self.age
     }
@@ -41,7 +49,6 @@ public class User {
     func getPoint()->Int{
         return self.point
     }
-    
     func setName(name:String){
         self.name = name
     }
@@ -60,11 +67,12 @@ public class User {
     func setPoint(point:Int){
         self.point = point
     }
-    init(name:String,password:String, user:String, gender:String, age:Int, phone:String, point:Int) {
+    init(id:Int,name:String,password:String, user:String, gender:String, age:Int, phone:String, point:Int,urlImage:String) {
         if name == "" || user == "" || password == "" || gender == "" || age <= 0 || phone == "" || point < 0{
             print("Data invalid")
         }
         else{
+            self.id = id
             self.password = password
             self.name = name
             self.userName = user
@@ -72,6 +80,7 @@ public class User {
             self.age = age
             self.phone = phone
             self.point = point
+            self.urlImage = urlImage
         }
     }
 }

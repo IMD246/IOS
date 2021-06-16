@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseStorage
 public var userNameLoginData:User!
 class ProfileViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
@@ -15,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     
+    @IBOutlet var image: UIImageView!
     var users:User!
     var temp:String!
     override func viewDidLoad() {
@@ -23,6 +25,13 @@ class ProfileViewController: UIViewController {
         lblName.text = users.name
         lblPhone.text = users.phone
         lblGender.text = users.gender
+        let url = URL(string: users.urlImage)
+        let data = try? Data(contentsOf: url!)
+        if let imageData = data{
+            let image1 = UIImage(data: imageData)
+            image.image = image1
+        }
+        print(users.urlImage)
         userNameLoginData = users
     }
     

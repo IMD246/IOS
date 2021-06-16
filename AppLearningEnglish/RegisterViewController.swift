@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
-class RegisterViewController: UIViewController, UITextFieldDelegate {
-
+import FirebaseStorage
+class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
     @IBOutlet weak var rdbFemale: UIButton!
     @IBOutlet weak var rdbMale: UIButton!
     @IBOutlet weak var edtName: UITextField!
@@ -19,13 +19,34 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var edtRepass: UITextField!
     @IBOutlet weak var edtPhone: UITextField!
     
+    @IBOutlet weak var imageView: UIImageView!
     var gender:String = ""
     var check1:Bool = true
     var check2:Bool = true
     var check3:Bool = true
     var listData = listUser()
+    var id:Int!
+    var urlimage:String!
+    private let storage = Storage.storage().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.contentMode = .scaleAspectFit
+        
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+            let url = URL(string: urlString) else{
+                return
+        }
+        self.urlimage = urlString
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.imageView.image = image
+            }
+        })
+        task.resume()
         edtName.delegate = self
         edtAge.delegate = self
         edtUserName.delegate = self
@@ -33,6 +54,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         edtRepass.delegate = self
         edtPhone.delegate = self
         listData.getDataFromFireBase()
+        id = listData.list.count + 2
     }
     //Mark: TextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -40,7 +62,45 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder();
         return true;
     }
-    
+    @IBAction func didTapButton()
+    {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker,animated:false)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        picker.dismiss(animated: false, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{return}
+        guard let imageData = image.pngData() else {return}
+        /*
+         /Desktop/file.png
+         */
+        let ref = storage.child("images/file.png")
+        ref.putData(imageData,
+                    metadata: nil,
+                    completion: {_,error in
+                        guard error == nil else{
+                            print("Failed to upload")
+                            return
+                        }
+                        self.storage.child("images/file.png").downloadURL(completion: {url,error in
+                            guard let url = url ,error == nil else{return}
+                            let urlString = url.absoluteString
+                            DispatchQueue.main.async {
+                                self.urlimage = urlString
+                                self.imageView.image = image
+                            }
+                            print("Download URL: \(urlString)")
+                            UserDefaults.standard.set(urlString, forKey: "url")
+                        })
+        })
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        picker.dismiss(animated: false, completion: nil)
+    }
     @IBAction func createUser(_ sender: UIButton) {
         let userText:Int = edtUserName.text!.count
         let passwordText:Int = edtPassword.text!.count
@@ -68,7 +128,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
-        
+            
         else if passwordText < 6 {
             let alert = UIAlertController(title: "Message", message: "password length must be equal or bigger than 6", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -86,13 +146,21 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             self.present(alert, animated: true)
         }
         else{
-            let user = User(name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0)
+            let user = User(id: id, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0,urlImage:urlimage)
             let alert = UIAlertController(title: "Message", message: "Register successful", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.edtAge.text = nil
+                self.edtName.text = nil
+                self.edtPhone.text = nil
+                self.edtPassword.text = nil
+                self.edtRepass.text = nil
+                self.rdbMale.isSelected = false
+                self.rdbMale.isSelected = false
+                self.edtUserName.text = nil
+            }))
             self.present(alert, animated: true)
             listData.insertUser(user: user)
         }
-        
     }
     
     //
@@ -107,7 +175,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             gender = "Female"
         }
     }
-
+    
     @IBAction func actionCheckMale(_ sender: UIButton) {
         isSelectedGender(true)
     }
@@ -116,11 +184,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     
-
+    
 }
