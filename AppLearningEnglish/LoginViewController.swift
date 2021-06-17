@@ -64,10 +64,24 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
         
     }
+    //Mark:Prepare
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+  	guard let pass = segue.destination as? RegisterViewcontroller else {return}
+	pass.id = listData.list.count+1
+    }
     //MARK: UNWIND
     @IBAction func unwindReturn(_ sender:UIStoryboardSegue)
-    {
-        txtUsername.text = nil
+    {       
+	txtUsername.text = nil
+        txtPassword.text = nil
+        checkLogin = false
+    }
+    @IBAction func unwindReturnFromRegister(_ sender:UIStoryboardSegue)
+    {       
+	guard let receive = sender.source as? RegisterViewController else {return}
+	listData.list = receive.listData.list
+	txtUsername.text = nil
         txtPassword.text = nil
         checkLogin = false
     }
