@@ -30,8 +30,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     private let storage = Storage.storage().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.contentMode = .scaleAspectFit
-        
+        imageView.contentMode = .scaleAspectFit        
         guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
             let url = URL(string: urlString) else{
                 return
@@ -53,8 +52,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         edtPassword.delegate = self
         edtRepass.delegate = self
         edtPhone.delegate = self
-        listData.getDataFromFireBase()
-        id = listData.list.count + 2
     }
     //Mark: TextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

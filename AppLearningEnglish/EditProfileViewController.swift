@@ -119,8 +119,6 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate,UII
     }
     //Mark: TextFieldDelegate
     @IBAction func finshEditing(_ sender: Any) {
-        if maleBtn.isSelected == true {gender = "male"}
-        else{gender = "female"}
       
         if let id = id{
             if edtName.text == nil || edtPhone.text == nil || edtAge.text == nil || gender == ""{
@@ -146,9 +144,11 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate,UII
         if isselected{
             self.maleBtn.isSelected = true
             self.femaleBtn.isSelected = false
+            gender = "Male"
         }else {
             self.maleBtn.isSelected = false
             self.femaleBtn.isSelected = true
+            gender = "Female"
         }
     }
     
