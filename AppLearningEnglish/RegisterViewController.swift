@@ -27,10 +27,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     var listData = listUser()
     var id:Int!
     var urlimage:String!
-    private let storage = Storage.storage().reference()
+    var image: UIImage? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.contentMode = .scaleAspectFit        
+        imageView.contentMode = .scaleAspectFit
         guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
             let url = URL(string: urlString) else{
                 return
@@ -68,31 +68,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         present(picker,animated:false)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
+        if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        {
+            image = imageSelected
+            imageView.image = imageSelected
+        }
+        if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        {
+            image = imageOriginal
+            imageView.image = imageOriginal
+        }
         picker.dismiss(animated: false, completion: nil)
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{return}
-        guard let imageData = image.pngData() else {return}
-        /*
-         /Desktop/file.png
-         */
-        let ref = storage.child("images/file.png")
-        ref.putData(imageData,
-                    metadata: nil,
-                    completion: {_,error in
-                        guard error == nil else{
-                            print("Failed to upload")
-                            return
-                        }
-                        self.storage.child("images/file.png").downloadURL(completion: {url,error in
-                            guard let url = url ,error == nil else{return}
-                            let urlString = url.absoluteString
-                            DispatchQueue.main.async {
-                                self.urlimage = urlString
-                                self.imageView.image = image
-                            }
-                            print("Download URL: \(urlString)")
-                            UserDefaults.standard.set(urlString, forKey: "url")
-                        })
-        })
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
@@ -108,6 +95,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     }
     @IBAction func createUser(_ sender: UIButton) {
         let ageText:Int = Int(edtAge.text!)!
+        guard let imageSelected = self.image else {
+            return
+        }
+        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {return}
         for i in 0..<listData.list.count
         {
             if edtUserName.text == listData.list[i].userName{
@@ -164,6 +155,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         else{
             let user = User(id: id, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0,urlImage:urlimage)
             let alert = UIAlertController(title: "Message", message: "Register successful", preferredStyle: .alert)
+           
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                 self.edtAge.text = nil
                 self.edtName.text = nil
@@ -175,7 +167,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
                 self.edtUserName.text = nil
             }))
             self.present(alert, animated: true)
+            //Mark: insert user
             listData.insertUser(user: user)
+            //Mark: update image user
+            let storageRef = Storage.storage().reference(forURL: "gs://iosproject-771b0.appspot.com")
+            let storageProfileRef = storageRef.child("profile\(user.id ?? 0)").child(user.userName)
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpg"
+            storageProfileRef.putData(imageData, metadata: metadata) { (storageMetaData, error) in
+                if error != nil {
+                    print(error?.localizedDescription ?? "")
+                    return
+                }
+                storageProfileRef.downloadURL(completion: { (url, error) in
+                    if let metaImageURL = url?.absoluteString{
+                        user.setURLImage(urlImage: metaImageURL)
+                        self.listData.updateUserData(username: user.userName, name: user.name, phone: user.phone, age: user.age, gender: user.gender, urlImage: user.urlImage)
+                    }
+                })
+            }
         }
     }
     

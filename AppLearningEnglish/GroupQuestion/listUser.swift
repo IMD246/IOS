@@ -94,7 +94,7 @@ class listUser {
         }
     }
     
-    func updateUserData(id:Int,name:String,phone:String,age:Int,gender:String,urlImage:String) {
+    func updateUserData(username:String,name:String,phone:String,age:Int,gender:String,urlImage:String) {
         let ref = Database.database().reference()
         ref.child("users").getData
             {
@@ -106,7 +106,7 @@ class listUser {
                 {
                     for i in 0..<snapshot.childrenCount{
                         
-                        if snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "id").value as? Int == id
+                        if snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "username").value as? String == username
                         {
                             ref.child("users/\(i)").updateChildValues(["name": name,"phone":phone,"age":age,"gender":gender,"image":urlImage]) {
                                 (error:Error?, ref:DatabaseReference) in

@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController {
         lblName.text = users.name
         lblPhone.text = users.phone
         lblGender.text = users.gender
+        print(users.urlImage)
         if(users.urlImage != "")
         {
             let url = URL(string: users.urlImage)
