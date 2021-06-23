@@ -117,12 +117,32 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate,UII
     {
         picker.dismiss(animated: false, completion: nil)
     }
+    func matches (for regex:String, in text:String)->Bool
+    {
+        if text.range(of: regex, options: .regularExpression) != nil
+        {
+            return true
+        }
+        return false
+    }
     //Mark: TextFieldDelegate
-    @IBAction func finshEditing(_ sender: Any) {
+    @IBAction func finshEditing(_ sender: UIButton) {
       
         if let id = id{
             if edtName.text == nil || edtPhone.text == nil || edtAge.text == nil || gender == ""{
                 let alert = UIAlertController(title: "Message", message: "Input Invalid", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
+            else if (matches(for:"[A-Z][a-z]{3,}( ?[A-Z][a-z]+)*", in: edtName.text ?? "")==false)
+            {
+                let alert = UIAlertController(title: "Message", message: "Your name is wrong , It had been liked :Nguyen Thanh Duy", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
+            else if (matches(for:"0[0-9]{9,10}", in: edtPhone.text ?? "")==false)
+            {
+                let alert = UIAlertController(title: "Message", message: "Phone has to start 0 and has 10 or 11 lengths", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }

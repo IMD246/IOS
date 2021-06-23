@@ -98,9 +98,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     {
         picker.dismiss(animated: false, completion: nil)
     }
+    func matches (for regex:String, in text:String)->Bool
+    {
+        if text.range(of: regex, options: .regularExpression) != nil
+        {
+            return true
+        }
+        return false
+    }
     @IBAction func createUser(_ sender: UIButton) {
-        let userText:Int = edtUserName.text!.count
-        let passwordText:Int = edtPassword.text!.count
         let ageText:Int = Int(edtAge.text!)!
         for i in 0..<listData.list.count
         {
@@ -115,18 +121,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
-        else if(edtPassword.text != edtRepass.text){
+        else if (matches(for:"[A-Z][a-z]{3,}( ?[A-Z][a-z]+)*", in: edtName.text ?? "")==false)
+        {
+            let alert = UIAlertController(title: "Message", message: "Your name is wrong , It had been liked :Nguyen Thanh Duy", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else if (matches(for:"0[0-9]{9,10}", in: edtPhone.text ?? "")==false)
+        {
+            let alert = UIAlertController(title: "Message", message: "Phone has to start 0 and has 10 or 11 lengths", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else if (matches(for: edtPassword.text ?? "", in: edtRepass.text ?? "")==false)
+        {
             let alert = UIAlertController(title: "Message", message: "password not equal to confirm pass", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
-        else if userText < 6 {
+        else if matches(for: "[a-zA-Z0-9]{6,}", in: edtUserName.text ?? "")==false {
             let alert = UIAlertController(title: "Message", message: "username length must be equal or bigger than 6", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
             
-        else if passwordText < 6 {
+        else if matches(for: ".{6,}", in: edtPassword.text ?? "")==false {
             let alert = UIAlertController(title: "Message", message: "password length must be equal or bigger than 6", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
