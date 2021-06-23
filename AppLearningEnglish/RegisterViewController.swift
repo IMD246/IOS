@@ -94,6 +94,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         return false
     }
     @IBAction func createUser(_ sender: UIButton) {
+        id = id+1
         let ageText:Int = Int(edtAge.text!)!
         guard let imageSelected = self.image else {
             return
@@ -153,7 +154,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             self.present(alert, animated: true)
         }
         else{
-            let user = User(id: id, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0,urlImage:urlimage)
+            let user = User(id: id ?? 0, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0,urlImage:urlimage)
             let alert = UIAlertController(title: "Message", message: "Register successful", preferredStyle: .alert)
            
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -171,7 +172,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             listData.insertUser(user: user)
             //Mark: update image user
             let storageRef = Storage.storage().reference(forURL: "gs://iosproject-771b0.appspot.com")
-            let storageProfileRef = storageRef.child("profile\(user.id ?? 0)").child(user.userName)
+            let storageProfileRef = storageRef.child("profile\(id ?? 0)").child(user.userName)
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpg"
             storageProfileRef.putData(imageData, metadata: metadata) { (storageMetaData, error) in

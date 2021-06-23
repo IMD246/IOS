@@ -68,7 +68,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         guard let pass = segue.destination as? RegisterViewController else {return}
-        pass.id = listData.list.count+1
+        pass.id = listData.list.count
     }
     //MARK: UNWIND
     @IBAction func unwindReturn(_ sender:UIStoryboardSegue)
