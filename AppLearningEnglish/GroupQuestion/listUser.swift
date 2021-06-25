@@ -54,7 +54,6 @@ class listUser {
             if i<list.count
             {
                 ListRanking.append(list[i])
-                print(ListRanking[i].userName)
             }
         }
         return ListRanking

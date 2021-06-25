@@ -37,7 +37,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     //MARK: LOGIN
     @IBAction func Login(_ sender: UIButton)
     {
-        print(listData.list.count)
         for i in 0..<listData.list.count
         {
             if txtUsername.text == listData.list[i].userName,txtPassword.text == listData.list[i].password{
