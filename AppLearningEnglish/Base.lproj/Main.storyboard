@@ -1085,7 +1085,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="4jA-Cz-cMK">
-                                <rect key="frame" x="18" y="85" width="377" height="520"/>
+                                <rect key="frame" x="18.5" y="85" width="377" height="520"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="KFL-0L-eVz">
                                         <rect key="frame" x="0.0" y="0.0" width="377" height="128"/>
@@ -1257,7 +1257,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageUser" destination="ot4-7m-mcz" id="zUm-o8-MyJ"/>
-                        <outlet property="imgUser" destination="ot4-7m-mcz" id="mOk-hd-8JS"/>
                         <outlet property="lblAge" destination="7vh-cq-1Io" id="bK0-pp-una"/>
                         <outlet property="lblDate" destination="EPh-cg-OkZ" id="T9f-Gg-AgI"/>
                         <outlet property="lblGender" destination="VQb-vk-P0A" id="KQR-yN-7cO"/>

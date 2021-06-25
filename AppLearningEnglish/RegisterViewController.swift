@@ -187,7 +187,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
                 }
                 storageProfileRef.downloadURL(completion: { (url, error) in
                     if let metaImageURL = url?.absoluteString{
-                        user.setURLImage(urlImage: metaImageURL)
+                        self.urlimage = metaImageURL
+                        user.setURLImage(urlImage: self.urlimage)
                         self.listData.updateUserData(username: user.userName, name: user.name, phone: user.phone, age: user.age, gender: user.gender, urlImage: user.urlImage)
                     }
                 })

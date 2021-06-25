@@ -15,25 +15,27 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblAge: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-    @IBOutlet weak var imgUser: UIImageView!
     @IBOutlet var imageUser: UIImageView!
     var users:User!
+    var urlImage:String!
     var listUsers:listUser! = listUser()
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgUser.layer.cornerRadius = (imgUser.frame.size.width / 2) - 2
-        imgUser.clipsToBounds = true
-        imgUser.layer.borderColor = UIColor.lightGray.cgColor
-        imgUser.layer
+        imageUser.layer.cornerRadius = (imageUser.frame.size.width / 2) - 2
+        imageUser.clipsToBounds = true
+        imageUser.layer.borderColor = UIColor.lightGray.cgColor
+        imageUser.layer
         .borderWidth = 1
         lblAge.text = String(users.age)
         lblName.text = users.name
         lblPhone.text = users.phone
         lblGender.text = users.gender
+        urlImage = users.urlImage
         if(users.urlImage != "")
         {
-            guard let url = URL(string: users.urlImage) else { return }
-            let data = try? Data(contentsOf: url)
+            let url = URL(string: users.urlImage)!
+            let data = try? Data(contentsOf: url,options: .alwaysMapped)
+            print(url)
             if let imageData = data{
                 let image1 = UIImage(data: imageData)
                 imageUser.image = image1
@@ -99,5 +101,8 @@ class ProfileViewController: UIViewController {
                 imageUser.image = image1
             }
         }
+        let tab = tabBarController?.viewControllers
+        guard let pro = tab?[2] as? RankTableViewController else {return}
+        pro.listData.list = listUsers.list
     }
 }
