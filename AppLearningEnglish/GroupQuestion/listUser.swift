@@ -119,12 +119,14 @@ class listUser {
                 
         }
     }
-    func insertUser(user:User) {
+    func insertUser(user:User)
+    {
         let ref = Database.database().reference()
         ref.child("users").getData
             {
                 (error, snapshot) in
-                if let error = error {
+                if let error = error
+                {
                     print("Error getting data \(error)")
                 }
                 else if snapshot.exists()
@@ -141,4 +143,5 @@ class listUser {
                 }
                 
         }     
-    }}
+    }
+}
