@@ -11,7 +11,7 @@ import FirebaseDatabase
 class listUser {
     var list:[User] = []
     func getDataFromFireBase() {
-//        list.removeAll();
+        //        list.removeAll();
         let ref = Database.database().reference()
         
         ref.child("users").getData
@@ -45,19 +45,16 @@ class listUser {
                     }
                 }
         }
-       
+        
     }
-    func GetTop10(listTemp:[User]) -> [User] {
+    func GetTop10() -> [User] {
         var ListRanking:[User] = []
-        var max:Int = 0
-        for i in 0..<listTemp.count{
-            if max <= listTemp[i].point{
-                max = listTemp[i].point
-            }
-        }
+        list.sort { $0.point > $1.point }
         for i in 0..<10{
-            if max >= listTemp[i].point{
-                ListRanking.append(listTemp[i] )
+            if i<list.count
+            {
+                ListRanking.append(list[i])
+                print(ListRanking[i].userName)
             }
         }
         return ListRanking
@@ -134,14 +131,14 @@ class listUser {
                 else if snapshot.exists()
                 {        //hoặc có thể để nó tự tạo id bằng câu lệnh tuy nhiên id tự tạo thuong có hơn 30 chữ cái khó gọi
                     ref.child("users").child("\(snapshot.childrenCount+1)").setValue(["id":user.id ?? 0,
-                                                                                    "name" : user.name ,
-                                                                                    "password" : user.password,
-                                                                                    "username" : user.userName,
-                                                                                    "gender" : user.gender,
-                                                                                    "age" : user.age,
-                                                                                    "phone" : user.phone,
-                                                                                    "score":0,
-                                                                                    "image":user.urlImage])
+                                                                                      "name" : user.name ,
+                                                                                      "password" : user.password,
+                                                                                      "username" : user.userName,
+                                                                                      "gender" : user.gender,
+                                                                                      "age" : user.age,
+                                                                                      "phone" : user.phone,
+                                                                                      "score":0,
+                                                                                      "image":user.urlImage])
                 }
                 
         }

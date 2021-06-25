@@ -7,13 +7,12 @@
 //
 
 import UIKit
-
 class LevelQuestionsViewController: UIViewController {
     
     @IBOutlet weak var btnBasic: UIButton!
     
     @IBOutlet weak var btnHigh: UIButton!
-    //
+    
     let listQuestions = ListQuestion()
     let questions:[Question] = []
     var levelQuestions:String = ""
@@ -21,9 +20,6 @@ class LevelQuestionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listQuestions.getAllQuest()
-        let tab = tabBarController?.viewControllers
-        let pro = tab![0] as! ProfileViewController
-        temp = pro.temp
     }
     
     

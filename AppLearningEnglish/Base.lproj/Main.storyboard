@@ -1054,7 +1054,7 @@
         <!--PROFILE-->
         <scene sceneID="8K3-Uf-9II">
             <objects>
-                <viewController id="z9o-Sw-Ig4" customClass="ProfileViewController" customModule="AppLearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="z9o-Sw-Ig4" customClass="ProfileViewController" customModule="AppLearningEnglish" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iig-MI-mU0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2528,7 +2528,6 @@
                         <outlet property="result1" destination="7KX-G3-2f1" id="KpG-fW-YXJ"/>
                         <outlet property="result2" destination="L5S-xK-zml" id="mPd-kF-eIW"/>
                         <outlet property="result3" destination="lTY-Gt-6gH" id="y4V-Hj-bHF"/>
-                        <outlet property="score" destination="Ve5-zP-GQT" id="Hhd-7C-DaH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRo-Mj-c9f" userLabel="First Responder" sceneMemberID="firstResponder"/>

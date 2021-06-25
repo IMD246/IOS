@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseStorage
+public var localUser:User!
 class ProfileViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblGender: UILabel!
@@ -17,7 +18,6 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var imageUser: UIImageView!
     var users:User!
-    var temp:String!
     var listUsers:listUser! = listUser()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController {
                 imageUser.image = image1
             }
         }
+        localUser = users
     }
      // MARK: - Navigation
      
@@ -47,7 +48,19 @@ class ProfileViewController: UIViewController {
      }
  
     @IBAction func unwindFromResultToProfile(_ sender: UIStoryboardSegue){
-        
+        guard let receive = sender.source as? ResultViewController else {return}
+        users = receive.user
+        if users.point <= receive.total
+        {
+            for i in 0..<listUsers.list.count
+            {
+                if listUsers.list[i].userName == users.userName
+                {
+                    listUsers.list[i].point = users.point
+                    break
+                }
+            }
+        }
     }
     @IBAction func unwindComeBackFromEdit(_ sender: UIStoryboardSegue){
         guard let receive = sender.source as? EditProfileViewController else {return}
