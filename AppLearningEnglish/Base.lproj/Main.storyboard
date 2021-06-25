@@ -1248,7 +1248,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="image" destination="ot4-7m-mcz" id="zUm-o8-MyJ"/>
+                        <outlet property="imageUser" destination="ot4-7m-mcz" id="zUm-o8-MyJ"/>
                         <outlet property="lblAge" destination="7vh-cq-1Io" id="bK0-pp-una"/>
                         <outlet property="lblDate" destination="EPh-cg-OkZ" id="T9f-Gg-AgI"/>
                         <outlet property="lblGender" destination="VQb-vk-P0A" id="KQR-yN-7cO"/>
@@ -2534,7 +2534,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRo-Mj-c9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pQw-ZD-sPI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1039.1304347826087" y="2408.7053571428569"/>
+            <point key="canvasLocation" x="1067" y="2261"/>
         </scene>
         <!--Basic3 View Controller-->
         <scene sceneID="Wsl-G9-JcF">
@@ -3049,7 +3049,6 @@
                                     <navigationItem title="Edit Profile" id="0ZA-bf-GeT">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="JZC-c4-0W1">
                                             <connections>
-                                                <action selector="actionDismiss:" destination="RWq-Oi-AME" id="fAS-Mq-KZ3"/>
                                                 <segue destination="DZr-UE-OSC" kind="unwind" unwindAction="unwindComeBackFromEdit:" id="seK-b9-mdE"/>
                                             </connections>
                                         </barButtonItem>

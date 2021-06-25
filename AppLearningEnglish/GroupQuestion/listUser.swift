@@ -11,7 +11,7 @@ import FirebaseDatabase
 class listUser {
     var list:[User] = []
     func getDataFromFireBase() {
-        list.removeAll();
+//        list.removeAll();
         let ref = Database.database().reference()
         
         ref.child("users").getData
@@ -22,8 +22,12 @@ class listUser {
                 }
                 else if snapshot.exists()
                 {
-                    for i in 0..<snapshot.childrenCount{
-                        //                        print(snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "username"))
+                    for i in 0..<Int.max
+                    {
+                        if(i>snapshot.childrenCount)
+                        {
+                            break
+                        }
                         let username = snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "username").value as? String
                         let password = snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "password").value as? String
                         let gender = snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "gender").value as? String
@@ -33,31 +37,27 @@ class listUser {
                         let name = snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "name").value as? String
                         let id = snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "id").value as? Int
                         let image = snapshot.childSnapshot(forPath: "\(i)").childSnapshot(forPath: "image").value as? String
-                        let users = User(id: id ?? self.list.count+2, name: name ?? "", password: password ?? "", user: username ?? "", gender: gender ?? "", age: age ?? 0, phone: phone ?? "", point: score ?? 0, urlImage: image ?? "")
-                        
-                        self.list.append(users)
+                        let users = User(id: id ?? 0, name: name ?? "", password: password ?? "", user: username ?? "", gender: gender ?? "", age: age ?? 0, phone: phone ?? "", point: score ?? 0, urlImage: image ?? "")
+                        if users.userName != ""
+                        {
+                            self.list.append(users)
+                        }
                     }
-                    
                 }
         }
+       
     }
     func GetTop10(listTemp:[User]) -> [User] {
         var ListRanking:[User] = []
         var max:Int = 0
         for i in 0..<listTemp.count{
-            
             if max <= listTemp[i].point{
                 max = listTemp[i].point
-                
-                
             }
         }
-        for i in 0..<listTemp.count{
-            
+        for i in 0..<10{
             if max >= listTemp[i].point{
-                
                 ListRanking.append(listTemp[i] )
-                
             }
         }
         return ListRanking
@@ -133,7 +133,7 @@ class listUser {
                 }
                 else if snapshot.exists()
                 {        //hoặc có thể để nó tự tạo id bằng câu lệnh tuy nhiên id tự tạo thuong có hơn 30 chữ cái khó gọi
-                    ref.child("users").child("\(snapshot.childrenCount)").setValue(["id":user.id ?? self.list.count+2,
+                    ref.child("users").child("\(snapshot.childrenCount+1)").setValue(["id":user.id ?? 0,
                                                                                     "name" : user.name ,
                                                                                     "password" : user.password,
                                                                                     "username" : user.userName,

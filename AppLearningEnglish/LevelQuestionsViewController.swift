@@ -24,7 +24,6 @@ class LevelQuestionsViewController: UIViewController {
         let tab = tabBarController?.viewControllers
         let pro = tab![0] as! ProfileViewController
         temp = pro.temp
-        print(temp ?? "")
     }
     
     

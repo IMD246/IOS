@@ -10,7 +10,7 @@ import UIKit
 import FirebaseStorage
 
 public class EditProfileViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var maleBtn: UIButton!
     @IBOutlet weak var femaleBtn: UIButton!
     @IBOutlet weak var edtName: UITextField!
@@ -97,24 +97,25 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate,UII
     }
     //Mark: TextFieldDelegate
     @IBAction func finshEditing(_ sender: UIButton) {
-        guard let imageSelected = self.image1 else {
-            return
-        }
-        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {return}
+        let imageSelected = self.image1
+        let imageData = imageSelected?.jpegData(compressionQuality: 0.4) ?? nil
         let storageRef = Storage.storage().reference(forURL: "gs://iosproject-771b0.appspot.com")
         let storageProfileRef = storageRef.child("profile\(user.id ?? 0)").child(user.userName)
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpg"
-        storageProfileRef.putData(imageData, metadata: metadata) { (storageMetaData, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-                return
-            }
-            storageProfileRef.downloadURL(completion: { (url, error) in
-                if let metaImageURL = url?.absoluteString{
-                    self.user.setURLImage(urlImage: metaImageURL)
+        if imageData != nil
+        {
+            storageProfileRef.putData(imageData!, metadata: metadata) { (storageMetaData, error) in
+                if error != nil {
+                    print(error?.localizedDescription ?? "")
+                    return
                 }
-            })
+                storageProfileRef.downloadURL(completion: { (url, error) in
+                    if let metaImageURL = url?.absoluteString{
+                        self.urlImage = metaImageURL
+                    }
+                })
+            }
         }
         if maleBtn.isSelected == true
         {
@@ -137,20 +138,21 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate,UII
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }
-            else if ageText<0||ageText>99
+            else if ageText<=0||ageText>99
             {
-                let alert = UIAlertController(title: "Message", message: "age not invalid", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Message", message: "Age has to start from 1 to 99 ", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }
-            else if (matches(for:"0[0-9]{9,10}", in: edtPhone.text ?? "")==false)
+            else if (matches(for:"^0[0-9]{9,10}$", in: edtPhone.text ?? "")==false)
             {
                 let alert = UIAlertController(title: "Message", message: "Phone has to start 0 and has 10 or 11 lengths", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
             }
-            else{
-                listData.updateUserData(username: user.userName , name: edtName.text ?? nameUser, phone: edtPhone.text ?? phoneUser, age: Int(edtAge.text ?? "20") ?? ageUser, gender: gender,urlImage: user.urlImage)
+            else
+            {
+                listData.updateUserData(username: user.userName , name: edtName.text ?? nameUser, phone: edtPhone.text ?? phoneUser, age: Int(edtAge.text ?? "20") ?? ageUser, gender: gender,urlImage: urlImage)
                 let alert = UIAlertController(title: "Message", message: "success editting", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self.present(alert, animated: true)
@@ -180,8 +182,5 @@ public class EditProfileViewController: UIViewController,UITextFieldDelegate,UII
     }
     @IBAction func actionCheckedFemale(_ sender: UIButton) {
         isselectionGender(false)
-    }
-    @IBAction func actionDismiss(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
     }
 }

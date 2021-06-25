@@ -32,7 +32,6 @@ class ResultViewController: UIViewController {
         let total = handlePoint(lQues: question)
         listData.updateScore(username: userNameLoginData.userName, score: total)
         lbTotal.text = "\(total)"
-        //print("Tong: \(tong)")
     }
     func handleQuestions(lQues:ListQuestion)->[String]{
         var type:[String] = []

@@ -68,7 +68,8 @@ public class User {
         self.point = point
     }
     init(id:Int,name:String,password:String, user:String, gender:String, age:Int, phone:String, point:Int,urlImage:String) {
-        if name == "" || user == "" || password == "" || gender == "" || age <= 0 || phone == "" || point < 0{
+        if name == "" || user == "" || password == "" || gender == "" || age <= 0 ||
+            phone == "" || point < 0{
             print("Data invalid")
         }
         else{

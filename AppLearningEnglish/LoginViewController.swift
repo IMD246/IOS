@@ -24,10 +24,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        listData.getDataFromFireBase()
         txtUsername.delegate = self
         txtPassword.delegate = self
-        // Do any additional setup after loading the view.
-        listData.getDataFromFireBase()
     }
     //Mark: TextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -38,6 +37,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     //MARK: LOGIN
     @IBAction func Login(_ sender: UIButton)
     {
+        print(listData.list.count)
         for i in 0..<listData.list.count
         {
             if txtUsername.text == listData.list[i].userName,txtPassword.text == listData.list[i].password{
@@ -53,8 +53,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             let vc = self.storyboard!.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
             let pass = vc.viewControllers?.first as! ProfileViewController
             pass.users = users
-            pass.listUsers = listData
-            pass.listUs = listData.list
+            pass.listUsers.list = listData.list
             present(vc, animated: true, completion: nil)
         }
         else{
@@ -68,7 +67,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         guard let pass = segue.destination as? RegisterViewController else {return}
-        pass.id = listData.list.count
+        pass.listData.list = listData.list
     }
     //MARK: UNWIND
     @IBAction func unwindReturn(_ sender:UIStoryboardSegue)

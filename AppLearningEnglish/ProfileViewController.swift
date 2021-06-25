@@ -16,31 +16,27 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var lblDate: UILabel!
     
-    @IBOutlet var image: UIImageView!
+    @IBOutlet var imageUser: UIImageView!
     var users:User!
     var temp:String!
-    var listUsers:listUser!
-    var listUs:[User] = []
+    var listUsers:listUser! = listUser()
     override func viewDidLoad() {
         super.viewDidLoad()
         lblAge.text = String(users.age)
         lblName.text = users.name
         lblPhone.text = users.phone
         lblGender.text = users.gender
-        print(users.urlImage)
         if(users.urlImage != "")
         {
-            let url = URL(string: users.urlImage)
-            let data = try? Data(contentsOf: url!)
+            guard let url = URL(string: users.urlImage) else {return}
+            let data = try? Data(contentsOf: url)
             if let imageData = data{
                 let image1 = UIImage(data: imageData)
-                image.image = image1
+                imageUser.image = image1
             }
         }
         userNameLoginData = users
     }
-    
-    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -57,14 +53,18 @@ class ProfileViewController: UIViewController {
     }
     @IBAction func unwindComeBackFromEdit(_ sender: UIStoryboardSegue){
         guard let receive = sender.source as? EditProfileViewController else {return}
-        if let id1 = receive.id
+        for i in 0..<listUsers.list.count
         {
-            if let age = receive.edtAge.text
+            if listUsers.list[i].userName == receive.user.userName
             {
-                listUs[id1].age = Int(age) ?? users.age
+                
+                listUsers.list[i].age = Int(receive.edtAge.text ?? "1") ?? 1
+                listUsers.list[i].name = receive.edtName.text ?? ""
+                listUsers.list[i].phone = receive.edtPhone.text ?? ""
+                listUsers.list[i].urlImage = receive.urlImage
+                users = listUsers.list[i]
+                break
             }
-            listUs[id1].name = receive.edtName.text ?? users.name
-            listUs[id1].urlImage = receive.urlImage
         }
         lblAge.text = receive.edtAge.text
         lblName.text = receive.edtName.text
@@ -72,11 +72,11 @@ class ProfileViewController: UIViewController {
         lblGender.text = receive.gender
         if(receive.urlImage != "")
         {
-            let url = URL(string: receive.urlImage)
-            let data = try? Data(contentsOf: url!)
+            guard let url = URL(string: receive.urlImage) else { return }
+            let data = try? Data(contentsOf: url)
             if let imageData = data{
                 let image1 = UIImage(data: imageData)
-                image.image = image1
+                imageUser.image = image1
             }
         }
     }

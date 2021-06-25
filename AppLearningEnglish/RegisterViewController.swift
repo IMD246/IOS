@@ -22,14 +22,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     @IBOutlet weak var imageView: UIImageView!
     var gender:String = ""
     var check1:Bool = true
-    var check2:Bool = true
-    var check3:Bool = true
     var listData = listUser()
-    var id:Int!
     var urlimage:String!
     var image: UIImage? = nil
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()        
         imageView.contentMode = .scaleAspectFit
         guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
             let url = URL(string: urlString) else{
@@ -94,22 +92,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         return false
     }
     @IBAction func createUser(_ sender: UIButton) {
-        id = id+1
-        let ageText:Int = Int(edtAge.text!)!
         guard let imageSelected = self.image else {
+            let alert = UIAlertController(title: "Message", message: "You have to pick an image", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
             return
         }
         guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {return}
+        guard let ageText:Int = Int(edtAge.text ?? "0") else {return}
         for i in 0..<listData.list.count
         {
-            if edtUserName.text == listData.list[i].userName{
+            if edtUserName.text ?? "0" == listData.list[i].userName
+            {
                 check1 = false
                 break
             }
+            else
+            {
+                check1 = true
+            }
         }
-        let v = Int(edtAge.text ?? "0")
         if edtUserName.text == nil || edtPassword.text == nil || edtAge.text == nil ||  edtName.text == nil || gender == "" {
-            let alert = UIAlertController(title: "Message", message: "input invalid", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Message", message: "Input invalid", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
@@ -119,7 +123,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
-        else if (matches(for:"0[0-9]{9,10}", in: edtPhone.text ?? "")==false)
+        else if (matches(for:"^0[0-9]{9,10}$", in: edtPhone.text ?? "")==false)
         {
             let alert = UIAlertController(title: "Message", message: "Phone has to start 0 and has 10 or 11 lengths", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -142,19 +146,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
-        else if ageText<0||ageText>99
+        else if ageText<=0||ageText>99
         {
-            let alert = UIAlertController(title: "Message", message: "age not invalid", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Message", message: "Age has to start from 1 to 99", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
         else if check1 == false{
-            let alert = UIAlertController(title: "Message", message: "acount user duplicate", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Message", message: "Acount user is duplicated", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
         else{
-            let user = User(id: id ?? 0, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: v ?? 0, phone: edtPhone.text ?? "", point: 0,urlImage:urlimage)
+            let user = User(id: listData.list.count+1, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: ageText , phone: edtPhone.text ?? "", point: 0,urlImage:urlimage)
             let alert = UIAlertController(title: "Message", message: "Register successful", preferredStyle: .alert)
            
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -170,9 +174,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             self.present(alert, animated: true)
             //Mark: insert user
             listData.insertUser(user: user)
+            listData.list.append(user)
             //Mark: update image user
             let storageRef = Storage.storage().reference(forURL: "gs://iosproject-771b0.appspot.com")
-            let storageProfileRef = storageRef.child("profile\(id ?? 0)").child(user.userName)
+            let storageProfileRef = storageRef.child("profile\(listData.list.count)").child(user.userName)
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpg"
             storageProfileRef.putData(imageData, metadata: metadata) { (storageMetaData, error) in
@@ -214,8 +219,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        guard let pass = segue.destination as? LoginViewController else {return}
+        pass.listData.list = listData.list
     }
-    
-    
 }

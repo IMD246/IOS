@@ -10,16 +10,14 @@ import UIKit
 class RankTableViewController: UITableViewController {
     
     var listData = listUser()
-    var listUsers:[User] = []
     var listRanking:[User] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         let tab = tabBarController?.viewControllers
         let pro = tab![0] as! ProfileViewController
-        listUsers = pro.listUs
-        listRanking = listData.GetTop10(listTemp: listUsers)
+        listData.list = pro.listUsers.list
+        listRanking = listData.GetTop10(listTemp: listData.list)
     }
-    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
