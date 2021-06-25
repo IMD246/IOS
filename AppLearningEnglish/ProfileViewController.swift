@@ -15,12 +15,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblAge: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-    
+    @IBOutlet weak var imgUser: UIImageView!
     @IBOutlet var imageUser: UIImageView!
     var users:User!
     var listUsers:listUser! = listUser()
     override func viewDidLoad() {
         super.viewDidLoad()
+        imgUser.layer.cornerRadius = (imgUser.frame.size.width / 2) - 2
+        imgUser.clipsToBounds = true
+        imgUser.layer.borderColor = UIColor.lightGray.cgColor
+        imgUser.layer
+        .borderWidth = 1
         lblAge.text = String(users.age)
         lblName.text = users.name
         lblPhone.text = users.phone
@@ -61,6 +66,10 @@ class ProfileViewController: UIViewController {
                 }
             }
         }
+        let tab = tabBarController?.viewControllers
+        guard let pro = tab?[2] as? RankTableViewController else {return}
+        pro.listData.list = listUsers.list
+        pro.listRanking = pro.listData.GetTop10()
     }
     @IBAction func unwindComeBackFromEdit(_ sender: UIStoryboardSegue){
         guard let receive = sender.source as? EditProfileViewController else {return}

@@ -140,20 +140,5 @@ class listUser {
                                                                                       "image":user.urlImage])
                 }
                 
-        }
-        //    func getTop10() {
-        //        let ref = Database.database().reference()
-        //        //hoặc có thể để nó tự tạo id bằng câu lệnh tuy nhiên id tự tạo thuong có hơn 30 chữ cái khó gọi
-        //        var rank:[String] = []
-        //        var point:[Int] = []
-        //        for i in 0<..r
-        //
-        //    }
-        //    func update(user:User) {
-        //        let ref = Database.database().reference()
-        //        //hoặc có thể để nó tự tạo id bằng câu lệnh tuy nhiên id tự tạo thuong có hơn 30 chữ cái khó gọi
-        //        var update = ["name" : user.name , "password" : user.password,"username" : user.userName,"gender" : user.gender,"age" : user.age,"phone" : user.phone] as [String : Any]
-        //        ref.updateChildValues(update)
-        //    }
-        
+        }     
     }}

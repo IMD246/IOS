@@ -18,7 +18,7 @@ class RankTableViewController: UITableViewController {
         let tab = tabBarController?.viewControllers
         guard let pro = tab?[0] as? ProfileViewController else {return}
         listData.list = pro.listUsers.list
-        listRanking = listData.GetTop10()
+        listRanking = listData.GetTop10()     
     }
     // MARK: - Table view data source
     

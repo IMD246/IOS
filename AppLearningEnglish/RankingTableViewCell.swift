@@ -18,6 +18,11 @@ class RankingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        RankImage.layer.cornerRadius = RankImage.frame.size.width / 2
+        RankImage.clipsToBounds = true
+        RankImage.layer.borderColor = UIColor.lightGray.cgColor
+        RankImage.layer
+            .borderWidth = 1
         // Initialization code
     }
     
