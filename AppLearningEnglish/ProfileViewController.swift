@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseStorage
-public var userNameLoginData:User!
 class ProfileViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblGender: UILabel!
@@ -28,14 +27,13 @@ class ProfileViewController: UIViewController {
         lblGender.text = users.gender
         if(users.urlImage != "")
         {
-            guard let url = URL(string: users.urlImage) else {return}
+            guard let url = URL(string: users.urlImage) else { return }
             let data = try? Data(contentsOf: url)
             if let imageData = data{
                 let image1 = UIImage(data: imageData)
                 imageUser.image = image1
             }
         }
-        userNameLoginData = users
     }
      // MARK: - Navigation
      
