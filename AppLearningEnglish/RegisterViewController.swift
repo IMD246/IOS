@@ -158,7 +158,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             self.present(alert, animated: true)
         }
         else{
-            let user = User(id: listData.list.count+1, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: ageText , phone: edtPhone.text ?? "", point: 0,urlImage:urlimage)
+            let user = User(id: listData.list.count+1, name: edtName.text ?? "",password: edtPassword.text ?? "", user: edtUserName.text ?? "", gender: gender, age: ageText , phone: edtPhone.text ?? "", point: 0,urlImage:urlimage ?? "")
             let alert = UIAlertController(title: "Message", message: "Register successful", preferredStyle: .alert)
            
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
